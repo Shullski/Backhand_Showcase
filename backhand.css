@@ -1,0 +1,249 @@
+/* Brand Colors */
+/* ============== */
+/* Responsive Design */
+* {
+  box-sizing: border-box; }
+
+body {
+  margin: 0; }
+
+.row::after {
+  content: '';
+  clear: both;
+  display: block; }
+
+[class*="col-"] {
+  width: 100%;
+  float: left;
+  padding: 15px; }
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-m-1 {
+    width: 8.33%; }
+
+  .col-m-2 {
+    width: 16.66%; }
+
+  .col-m-3 {
+    width: 25%; }
+
+  .col-m-4 {
+    width: 33.33%; }
+
+  .col-m-5 {
+    width: 41.66%; }
+
+  .col-m-6 {
+    width: 50%; }
+
+  .col-m-7 {
+    width: 58.33%; }
+
+  .col-m-8 {
+    width: 66.66%; }
+
+  .col-m-9 {
+    width: 75%; }
+
+  .col-m-10 {
+    width: 83.33%; }
+
+  .col-m-11 {
+    width: 91.66%; }
+
+  .col-m-12 {
+    width: 100%; } }
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {
+    width: 8.33%; }
+
+  .col-2 {
+    width: 16.66%; }
+
+  .col-3 {
+    width: 25%; }
+
+  .col-4 {
+    width: 33.33%; }
+
+  .col-5 {
+    width: 41.66%; }
+
+  .col-6 {
+    width: 50%; }
+
+  .col-7 {
+    width: 58.33%; }
+
+  .col-8 {
+    width: 66.66%; }
+
+  .col-9 {
+    width: 75%; }
+
+  .col-10 {
+    width: 83.33%; }
+
+  .col-11 {
+    width: 91.66%; }
+
+  .col-12 {
+    width: 100%; } }
+/* Site */
+.scrollbar {
+  position: fixed;
+  z-index: 10;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'proxima soft';
+  color: white;
+  font-size: 48px; }
+
+.jumboTron {
+  height: 900px;
+  background-image: url("images/lookingOut.jpg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+  padding: 0;
+  margin: 0; }
+
+/*==== JUMBOTRON ====*/
+.jumbotronOverlay {
+  background: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to top right, #F75B54, #00E985, #10DBE8, #54A0F7, #B954F7);
+  opacity: 0.4;
+  z-index: 3;
+  padding: 30px; }
+
+.headline {
+  z-index: 5;
+  position: absolute;
+  text-align: center;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  padding: 0; }
+
+.logoContainer {
+  height: 300px;
+  width: 300px;
+  margin: 0 auto; }
+
+.headlineLogo {
+  max-width: 100%;
+  max-height: 100%; }
+
+.headline h1 {
+  color: white;
+  font-size: 42px;
+  font-family: 'proxima-soft'; }
+
+/* ============== */
+/*==== ABOUT ====*/
+.about {
+  height: 600px;
+  z-index: 0;
+  padding: 0;
+  background-image: url("images/onPhone.jpg");
+  background-position: top;
+  background-size: cover;
+  position: relative;
+  background-attachment: fixed; }
+  .about .aside {
+    z-index: 4;
+    position: absolute;
+    max-width: 800px;
+    right: 30px;
+    top: 50%;
+    text-align: right;
+    transform: translateY(-50%); }
+  .about h2 {
+    color: white;
+    font-family: 'chantal';
+    font-size: 48px; }
+  .about p {
+    color: white;
+    font-size: 24px;
+    font-family: "proxima-soft"; }
+
+.aboutOverlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background: linear-gradient(to right, transparent 10%, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)); }
+
+/* ============== */
+/*==== Map ====*/
+.map {
+  height: 700px;
+  border-bottom: 1px solid gray;
+  transition: 0.5s;
+  background-color: #F75B54;
+  z-index: 10;
+  position: relative; }
+
+.events {
+  height: 700px;
+  border-bottom: 1px solid gray;
+  transition: 0.5s;
+  background-color: #F75B54;
+  z-index: 1;
+  position: relative; }
+
+.messaging {
+  height: 700px;
+  border-bottom: 1px solid gray;
+  transition: 0.5s;
+  background-color: #F75B54;
+  z-index: 1;
+  position: relative; }
+
+.groups {
+  height: 700px;
+  border-bottom: 1px solid gray;
+  transition: 0.5s;
+  background-color: #F75B54;
+  z-index: 1;
+  position: relative; }
+
+/* ============== */
+/* ===== Material Design Shadows ===== */
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+
+.card-1Hover {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+
+.card-1Hover:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+
+.card-2 {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+
+.card-3 {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+
+.card-4 {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+
+.card-5 {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
+
+/*# sourceMappingURL=backhand.css.map */
