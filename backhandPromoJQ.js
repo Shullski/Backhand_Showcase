@@ -173,28 +173,47 @@ function getHSLText(color) {
 
 /*===============*/
 $(document).ready(function(){
+  var offset = $('#mapButton').offset();
+
+  var top = offset.top;
+  var left = offset.left;
+  console.log(offset);
 
   //Get the positions of each section for color fading
-  var greenPosition = ($('.map').position().top) - ($('.map').height()/2);
-  var bluePosition = ($('.messaging').position().top) - ($('.messaging').height()/2);
-  var purplePosition = ($('.groups').position().top) - ($('.groups').height()/2);
+  // var greenPosition = ($('.map').position().top) - ($('.map').height()/2);
+  // var bluePosition = ($('.messaging').position().top) - ($('.messaging').height()/2);
+  // var purplePosition = ($('.groups').position().top) - ($('.groups').height()/2);
 
   $(document).scroll(function() {
     var position = $(this).scrollTop();
-    var greenPosition = ($('.map').position().top) - ($('.map').height()/2);
-    var bluePosition = ($('.messaging').position().top) - ($('.messaging').height()/2);
-    var purplePosition = ($('.groups').position().top) - ($('.groups').height()/2);
 
-    if(position > greenPosition && position < bluePosition) {
-      $('.map, .events, .messaging, .groups').css('background-color', greenHex);
-    }else if (position > bluePosition && position < purplePosition) {
-      $('.map, .events, .messaging, .groups').css('background-color', blueHex);
-    }else if (position > purplePosition) {
-      $('.map, .events, .messaging, .groups').css('background-color', purpleHex);
-    }else {
-      $('.map, .events, .messaging, .groups').css('background-color', redHex);
-    }
+    // var greenPosition = ($('.map').position().top) - ($('.map').height()/2);
+    // var bluePosition = ($('.messaging').position().top) - ($('.messaging').height()/2);
+    // var purplePosition = ($('.groups').position().top) - ($('.groups').height()/2);
+  //
+  //   if(position > greenPosition && position < bluePosition) {
+  //     $('.map, .events, .messaging, .groups').css('background-color', greenHex);
+  //     $('.map > .aside').fadeIn('500');
+  //   }else if (position > bluePosition && position < purplePosition) {
+  //     $('.map, .events, .messaging, .groups').css('background-color', blueHex);
+  //     $('.messaging > .aside').fadeIn('fast ');
+  //     //$('.messaging > .aside').animate({right: '30px'}, 300);
+  //   }else if (position > purplePosition) {
+  //     $('.map, .events, .messaging, .groups').css('background-color', purpleHex);
+  //     $('.groups > .aside').fadeIn('500');
+  //   }else {
+  //     $('.map, .events, .messaging, .groups').css('background-color', redHex);
+  //   }
   });
+
+  $('#eventButton, #mapButton, #messagingButton, #groupsButton').click(function() {
+    $('body').toggleClass('noScroll');
+    $('#redOverlay').css('transform', 'skewX(0deg)');
+    $('#redOverlay').animate({'left': '0'}, 500);
+    $('.popupContent').fadeIn('slow');
+    $('.contentOverlay').css('background-color', 'rgba(0,0,0,0.7)');
+  });
+
 
 
 
@@ -215,4 +234,5 @@ $(document).ready(function(){
   //     });
   //   }
   // });
+
 });

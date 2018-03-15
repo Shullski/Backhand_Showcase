@@ -1,11 +1,27 @@
 /* Brand Colors */
 /* ============== */
+.bgRed {
+  background-color: #F75B54; }
+
+.bgGreen {
+  background-color: #00E985; }
+
+.bgTeal {
+  background-color: #10DBE8; }
+
+.bgBlue {
+  background-color: #54A0F7; }
+
+.bgPurple {
+  background-color: #B954F7; }
+
 /* Responsive Design */
 * {
   box-sizing: border-box; }
 
 body {
-  margin: 0; }
+  margin: 0;
+  padding: 0; }
 
 .row::after {
   content: '';
@@ -92,6 +108,9 @@ body {
   .col-12 {
     width: 100%; } }
 /* Site */
+.noScroll {
+  overflow: hidden; }
+
 .scrollbar {
   position: fixed;
   z-index: 10;
@@ -103,15 +122,18 @@ body {
   font-size: 48px; }
 
 .jumboTron {
-  height: 900px;
+  height: 100vh;
+  min-height: 700px;
   background-image: url("images/lookingOut.jpg");
   background-position: bottom;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
   position: relative;
   z-index: 2;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  overflow: hidden; }
 
 /*==== JUMBOTRON ====*/
 .jumbotronOverlay {
@@ -153,75 +175,142 @@ body {
 /* ============== */
 /*==== ABOUT ====*/
 .about {
-  height: 600px;
   z-index: 0;
+  margin: 0;
   padding: 0;
-  background-image: url("images/onPhone.jpg");
-  background-position: top;
+  background-image: url("images/lookingOut.jpg");
+  background-position: bottom;
   background-size: cover;
   position: relative;
   background-attachment: fixed; }
-
-.aside {
-  z-index: 4;
-  position: absolute;
-  max-width: 800px;
-  right: 30px;
-  top: 50%;
-  text-align: right;
-  transform: translateY(-50%); }
-
-h2 {
-  color: white;
-  font-family: 'chantal';
-  font-size: 48px; }
-
-p {
-  color: white;
-  font-size: 24px;
-  font-family: "proxima-soft"; }
+  .about .aside {
+    z-index: 4;
+    position: relative;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    text-align: left;
+    float: right; }
+  .about h2 {
+    color: rgba(0, 0, 0, 0.8);
+    font-family: 'chantal';
+    font-weight: bold;
+    font-size: 72px;
+    text-align: center; }
+  .about p {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 24px;
+    font-family: "proxima-soft";
+    padding-right: 200px;
+    padding-left: 200px;
+    text-align: center; }
 
 .aboutOverlay {
   height: 100%;
   width: 100%;
+  margin: 0;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 3;
-  background: linear-gradient(to right, transparent 10%, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)); }
+  background: linear-gradient(to top, white, rgba(255, 255, 255, 0.6)); }
+
+.featuresContainer {
+  padding: 10px;
+  padding-bottom: 100%;
+  margin: 0;
+  position: relative;
+  z-index: 999; }
+  @media only screen and (min-width: 600px) {
+    .featuresContainer {
+      padding-bottom: 50%; } }
+  @media only screen and (min-width: 768px) {
+    .featuresContainer {
+      padding-bottom: 25%; } }
+
+.featuresButton {
+  height: 80%;
+  width: 80%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 1000;
+  transition: 2s;
+  border-radius: 5px; }
+
+.featuresButton:hover {
+  height: 90%;
+  width: 90%;
+  cursor: pointer; }
+
+.popupContent {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: 500px;
+  max-width: 900px;
+  color: white;
+  padding-bottom: 100px;
+  font-size: 24px;
+  font-family: 'proxima-soft';
+  margin-top: 20px; }
+  .popupContent h2 {
+    font-family: 'chantal';
+    font-size: 64px; }
 
 /* ============== */
-/*==== Map ====*/
-.map {
-  height: 700px;
-  transition: 0.5s;
-  background-color: #f75d55;
-  z-index: 2;
-  position: relative; }
-
-.events {
-  height: 700px;
-  transition: 0.5s;
-  background-color: #f75d55;
-  z-index: 1;
-  position: relative; }
-
-.messaging {
-  height: 700px;
-  transition: 0.5s;
-  background-color: #f75d55;
-  z-index: 3;
-  position: relative; }
-
-.groups {
-  height: 700px;
-  transition: 0.5s;
-  background-color: #f75d55;
-  z-index: 4;
-  position: relative; }
-
 .footer {
-  height: 400px; }
+  height: 400px;
+  background-image: url("images/concrete-texture.png");
+  background-attachment: fixed;
+  padding: 0;
+  margin: 0;
+  box-shadow: inset 0 6px 9px -6px rgba(0, 0, 0, 0.7);
+  z-index: 0; }
+
+.wrapper {
+  padding: 0;
+  margin: 0;
+  z-index: 4; }
+
+.expandIcon {
+  position: absolute;
+  bottom: 5%;
+  right: 10%; }
+
+.expanded {
+  width: 100%;
+  transition: 1s; }
+
+.overlay {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  transition: transform 0.5s;
+  transform: skewX(30deg);
+  z-index: 3000;
+  overflow-y: scroll;
+  padding-bottom: 100px;
+  padding-left: 20px;
+  padding-right: 20px; }
+
+.contentOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2000;
+  pointer-events: none;
+  transition: 0.4s; }
 
 /* ============== */
 /* ===== Material Design Shadows ===== */
@@ -229,12 +318,9 @@ p {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
-.card-1Hover {
+.card-1:hover {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
-
-.card-1Hover:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
 
 .card-2 {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }

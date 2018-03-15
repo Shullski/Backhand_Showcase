@@ -12,9 +12,12 @@
   <script src = "backhandPromoJQ.js"></script>
   <link rel="stylesheet" href="https://use.typekit.net/bxn0dyo.css">
 
+
 </head>
 
 <body>
+  <div class = 'contentOverlay'>
+  </div>
   <div class = 'scrollbar'>
   </div>
   <div class = 'row jumboTron col-12 card-2'>
@@ -32,37 +35,56 @@
   <div class = 'row about col-12'>
     <div class = 'aboutOverlay'>
     </div>
-    <div class = 'aside'>
-      <h2>Backhand</h2>
-      <p>Introducing Backhand. This mobile application solves the problem by giving students a community driven framework to share their favorite places on campus. Users can visit these spots and either up-vote, down-vote, or leave a comment with their thoughts on the location, with the best spots slowly emerging over time. Certain established entities on campus could also have the power to "sticky" their location, allowing any club or organization to quite literally "get themselves on the map.</p>
+    <div class = 'row aside col-12 col-m-12'>
+      <h2 class = 'derp'>Introducting Backhand</h2>
+      <p>This mobile application solves the problem by giving students a community driven framework to share their favorite places on campus. Users can visit these spots and either up-vote, down-vote, or leave a comment with their thoughts on the location, with the best spots slowly emerging over time. Certain established entities on campus could also have the power to "sticky" their location, allowing any club or organization to quite literally "get themselves on the map.</p>
+    </div>
+    <div class = 'col-3 col-m-6 featuresContainer'>
+      <div class = 'featuresButton bgRed card-1' id = 'eventButton'>
+        <svg class = 'expandIcon' style="width:40px;height:40px" viewBox="0 0 24 24">
+        <path class = 'expandIcon' fill="white" d="M4,2H2V22H4V13H18.17L12.67,18.5L14.08,19.92L22,12L14.08,4.08L12.67,5.5L18.17,11H4V2Z" />
+        </svg>
+      </div>
+    </div>
+    <div class = 'col-3 col-m-6 featuresContainer'>
+      <div class = 'featuresButton bgGreen card-1' id = 'mapButton'>
+        <svg class = 'expandIcon' style="width:40px;height:40px" viewBox="0 0 24 24">
+        <path class = 'expandIcon' fill="white" d="M4,2H2V22H4V13H18.17L12.67,18.5L14.08,19.92L22,12L14.08,4.08L12.67,5.5L18.17,11H4V2Z" />
+        </svg>
+      </div>
+    </div>
+    <div class = 'col-3 col-m-6 featuresContainer'>
+      <div class = 'featuresButton bgBlue card-1' id = 'messagingButton'>
+        <svg class = 'expandIcon' style="width:40px;height:40px" viewBox="0 0 24 24">
+        <path class = 'expandIcon' fill="white" d="M4,2H2V22H4V13H18.17L12.67,18.5L14.08,19.92L22,12L14.08,4.08L12.67,5.5L18.17,11H4V2Z" />
+        </svg>
+      </div>
+    </div>
+    <div class = 'col-3 col-m-6 featuresContainer'>
+      <div class = 'featuresButton bgPurple card-1' id = 'groupsButton'>
+        <svg class = 'expandIcon' style="width:40px;height:40px" viewBox="0 0 24 24">
+        <path class = 'expandIcon' fill="white" d="M4,2H2V22H4V13H18.17L12.67,18.5L14.08,19.92L22,12L14.08,4.08L12.67,5.5L18.17,11H4V2Z" />
+        </svg>
+      </div>
     </div>
   </div>
-
-  <div class = 'events row col-12' id = 'features'>
-    <div class = 'aside'>
-      <h2>Events</h2>
-      <p>Introducing Backhand. This mobile application solves the problem by giving students a community driven framework to share their favorite places on campus. Users can visit these spots and either up-vote, down-vote, or leave a comment with their thoughts on the location, with the best spots slowly emerging over time. Certain established entities on campus could also have the power to "sticky" their location, allowing any club or organization to quite literally "get themselves on the map.</p>
-    </div>
-  </div>
-  <div class = 'row map col-12' id = 'features'>
-    <div class = 'aside'>
-      <h2>The Map</h2>
-      <p>Introducing Backhand. This mobile application solves the problem by giving students a community driven framework to share their favorite places on campus. Users can visit these spots and either up-vote, down-vote, or leave a comment with their thoughts on the location, with the best spots slowly emerging over time. Certain established entities on campus could also have the power to "sticky" their location, allowing any club or organization to quite literally "get themselves on the map.</p>
-    </div>
-  </div>
-  <div class = 'row messaging col-12' id = 'features'>
-    <div class = 'aside'>
-      <h2>Messaging</h2>
-      <p>Introducing Backhand. This mobile application solves the problem by giving students a community driven framework to share their favorite places on campus. Users can visit these spots and either up-vote, down-vote, or leave a comment with their thoughts on the location, with the best spots slowly emerging over time. Certain established entities on campus could also have the power to "sticky" their location, allowing any club or organization to quite literally "get themselves on the map.</p>
-    </div>
-  </div>
-  <div class = 'row groups col-12' id = 'features'>
-    <div class = 'aside'>
-      <h2>Groups</h2>
-      <p>Introducing Backhand. This mobile application solves the problem by giving students a community driven framework to share their favorite places on campus. Users can visit these spots and either up-vote, down-vote, or leave a comment with their thoughts on the location, with the best spots slowly emerging over time. Certain established entities on campus could also have the power to "sticky" their location, allowing any club or organization to quite literally "get themselves on the map.</p>
-    </div>
-  </div>
-
   <div class = 'footer row col-12'>
+  </div>
+
+  <div class = 'overlay bgRed card-5' id = 'redOverlay'>
+    <div class = 'popupContent'><h2>Events</h2>This lorem ipsum generator is made for all the webdesigners, designers, webmasters and others who need lorem ipsum. Generator is made the way that everyone can use it, but especially for projects which need html markup. You can decide which html tags you want and our generator will generate just as you specified.
+      This lorem ipsum generator is made for all the webdesigners, designers, webmasters and others who need lorem ipsum. Generator is made the way that everyone can use it, but especially for projects which need html markup. You can decide which html tags you want and our generator will generate just as you specified.
+      This lorem ipsum generaThisThThis lorem ipsum generator is made for all the webdesigners, designers, webmasters and others who need lorem ipsum. Generator is made the way that everyone can use it, but especially for projects which need html markup. You can decide which html tags you want and our generator will generate just as you specified.
+is lorem ipsum generator is made for all the webdesigners, designers, webmasters and others who need lorem ipsum. Generator is made the way that everyone can use it, but especially for projects which need html markup. You can decide which html tags you want and our generator will generate just as you specified.
+ lorem ipsum generator is made for all the webdesigners, designers, webmasters and others who need lorem ipsum. Generator is made the way that everyone can use it, but especially for projects which need html markup. You can decide which html tags you want and our generator will generate just as you specified.
+tor is made for all the webdesigners, designers, webmasters and others who need lorem ipsum. Generator is made the way that everyone can use it, but especially for projects which need html markup. You can decide which html tags you want and our generator will generate just as you specified.
+    </div>
+  </div>
+  <div class = 'overlay bgGreen card-5'>
+  </div>
+  <div class = 'overlay bgBlue card-5'>
+  </div>
+  <div class = 'overlay bgPurple card-5'>
+  </div>
 </body>
 </html>
