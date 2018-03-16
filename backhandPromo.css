@@ -159,8 +159,8 @@ body {
   padding: 0; }
 
 .logoContainer {
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
   margin: 0 auto; }
 
 .headlineLogo {
@@ -186,7 +186,7 @@ body {
   .about .aside {
     z-index: 4;
     position: relative;
-    padding-top: 75px;
+    padding-top: 80px;
     padding-bottom: 75px;
     text-align: left;
     float: right; }
@@ -195,14 +195,28 @@ body {
     font-family: 'chantal';
     font-weight: bold;
     font-size: 72px;
-    text-align: center; }
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    overflow: hidden; }
   .about p {
     color: rgba(0, 0, 0, 0.8);
     font-size: 24px;
     font-family: "proxima-soft";
-    padding-right: 200px;
-    padding-left: 200px;
-    text-align: center; }
+    max-width: 1200px;
+    text-align: center;
+    margin: 0 auto; }
+  .about h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    width: 100%;
+    display: inline-block;
+    color: rgba(0, 0, 0, 0.5);
+    font-family: 'chantal';
+    font-size: 54px;
+    position: relative;
+    text-align: center;
+    z-index: 5; }
 
 .aboutOverlay {
   height: 100%;
@@ -245,8 +259,47 @@ body {
   width: 90%;
   cursor: pointer; }
 
-.featuresIcon {
-  width: 100%; }
+.iconContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0%;
+  margin: auto;
+  height: 65%;
+  width: 65%; }
+
+.buttonOverlay {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: height   0.2s;
+  overflow: hidden; }
+  .buttonOverlay span {
+    font-family: 'chantal';
+    position: absolute;
+    text-align: center;
+    color: white;
+    font-size: 2.2vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+
+.expandedButtonOverlay {
+  height: 20%; }
+
+.expandOverlayContainer {
+  height: 100%;
+  width: 20%;
+  padding: 6%;
+  right: -20%;
+  position: absolute;
+  transition: ease-out 0.3s;
+  overflow: hidden; }
 
 .popupContent {
   display: none;
@@ -324,7 +377,8 @@ body {
   right: 2%;
   top: 2%;
   border: 3px solid white;
-  background-color: #F75B54; }
+  background-color: #F75B54;
+  z-index: 1000; }
 
 .collapse {
   position: absolute;

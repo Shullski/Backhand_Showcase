@@ -218,7 +218,14 @@ $(document).ready(function(){
      });
   });
 
-
+  $('#eventButton, #mapButton, #messagingButton, #groupsButton').hover(function() {
+    //$(this).children('.iconContainer').animate({ 'bottom': '10%' }, 200 );
+    $(this).children('.buttonOverlay').addClass('expandedButtonOverlay');
+    $(this).find('.expandOverlayContainer').css('right', '0');
+    }, function(){
+    $(this).children('.buttonOverlay').removeClass("expandedButtonOverlay");
+    $(this).find('.expandOverlayContainer').css('right', '-20%');
+  });
 
 
 
