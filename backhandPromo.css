@@ -228,8 +228,8 @@ body {
       padding-bottom: 25%; } }
 
 .featuresButton {
-  height: 80%;
-  width: 80%;
+  height: 85%;
+  width: 85%;
   position: absolute;
   top: 0;
   right: 0;
@@ -244,6 +244,9 @@ body {
   height: 90%;
   width: 90%;
   cursor: pointer; }
+
+.featuresIcon {
+  width: 100%; }
 
 .popupContent {
   display: none;
@@ -292,15 +295,16 @@ body {
   height: 100%;
   position: fixed;
   top: 0;
-  left: -150%;
+  left: -110%;
   width: 100%;
   transition: transform 0.5s;
-  transform: skewX(30deg);
   z-index: 3000;
   overflow-y: scroll;
   padding-bottom: 100px;
   padding-left: 20px;
-  padding-right: 20px; }
+  padding-right: 20px;
+  clip-path: polygon(0 0, 74% 0, 100% 100%, 0 100%);
+  transition: clip-path 0.8s; }
 
 .contentOverlay {
   position: fixed;
@@ -312,6 +316,39 @@ body {
   pointer-events: none;
   transition: 0.4s; }
 
+.collapseContainer {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  border: 3px solid white;
+  background-color: #F75B54; }
+
+.collapse {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto; }
+
+.overlay::-webkit-scrollbar {
+  width: 7px; }
+
+/* Track */
+.overlay::-webkit-scrollbar-track {
+  background: #fcb8b5; }
+
+/* Handle */
+.overlay::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.7); }
+
+/* Handle on hover */
+.overlay::-webkit-scrollbar-thumb:hover {
+  background: #555; }
+
 /* ============== */
 /* ===== Material Design Shadows ===== */
 .card-1 {
@@ -319,8 +356,8 @@ body {
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
 .card-1:hover {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  cursor: pointer; }
 
 .card-2 {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }

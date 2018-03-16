@@ -4,6 +4,9 @@ $green: #00E985;
 $teal: #10DBE8;
 $blue: #54A0F7;
 $purple: #B954F7;
+
+$lightRed: lighten($red, 20%);
+
 /* ============== */
 .bgRed {background-color: $red;}
 .bgGreen {background-color: $green;}
@@ -205,8 +208,8 @@ body{
 }
 
 .featuresButton {
-  height:80%;
-  width:80%;
+  height:85%;
+  width:85%;
   position:absolute;
   top:0;
   right:0;
@@ -216,6 +219,8 @@ body{
   z-index: 1000;
   transition: 2s;
   border-radius: 5px;
+
+
 }
 .featuresButton:hover {
   height:90%;
@@ -223,6 +228,10 @@ body{
   cursor: pointer;
 }
 
+.featuresIcon {
+  width:100%;
+  //posttion:absolute;
+}
 .popupContent {
   display:none;
   position:absolute;
@@ -259,7 +268,6 @@ body{
   margin:0;
   box-shadow: inset 0 6px 9px -6px rgba(0,0,0,0.7);
   z-index: 0;
-
 }
 
 
@@ -273,6 +281,7 @@ body{
   position:absolute;
   bottom: 5%;
   right:10%;
+
 }
 
 .expanded {
@@ -284,15 +293,18 @@ body{
   height:100%;
   position:fixed;
   top:0;
-  left:-150%;
+  left:-110%;
   width:100%;
   transition:transform 0.5s;
-  transform: skewX(30deg);
+  //transform: skewX(30deg);
   z-index:3000;
   overflow-y: scroll;
   padding-bottom: 100px;
   padding-left: 20px;
   padding-right: 20px;
+  //-webkit-clip-path: polygon(0 0, 74% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 74% 0, 100% 100%, 0 100%);
+  transition: clip-path 0.8s;
 }
 
 .contentOverlay {
@@ -307,6 +319,43 @@ body{
 
 }
 
+.collapseContainer {
+  border-radius: 50%;
+  height:50px;
+  width:50px;
+  position:absolute;
+  right:2%;
+  top:2%;
+  border:3px solid white;
+  background-color: $red;
+}
+
+.collapse {
+  position:absolute;
+  bottom:0;
+  top:0;
+  right:0;
+  left:0;
+  margin:auto;
+}
+.overlay::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+.overlay::-webkit-scrollbar-track {
+    background: $lightRed;
+}
+
+/* Handle */
+.overlay::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.7);
+}
+
+/* Handle on hover */
+.overlay::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
 
 /* ============== */
 
@@ -318,8 +367,8 @@ body{
 }
 
 .card-1:hover {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  cursor: pointer;
 }
 
 

@@ -208,10 +208,14 @@ $(document).ready(function(){
 
   $('#eventButton, #mapButton, #messagingButton, #groupsButton').click(function() {
     $('body').toggleClass('noScroll');
-    $('#redOverlay').css('transform', 'skewX(0deg)');
+
     $('#redOverlay').animate({'left': '0'}, 500);
     $('.popupContent').fadeIn('slow');
     $('.contentOverlay').css('background-color', 'rgba(0,0,0,0.7)');
+    $(".overlay").css({
+      "-webkit-clip-path": "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+       "clip-path": "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
+     });
   });
 
 
