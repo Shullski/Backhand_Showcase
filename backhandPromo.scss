@@ -397,17 +397,17 @@ body{
 }
 
 .overlay {
-  height:100%;
+  height:100vh;
   position:fixed;
   top:0;
-  left:-100%;
-  width:100%;
+  left:0;
+  width:0%;
   z-index:3000;
   overflow-y: scroll;
-  padding-bottom: 100px;
-  padding-left: 20px;
-  padding-right: 20px;
-  clip-path: polygon(0 0, 70% 0, 100% 100%, 0 100%);
+  // padding-bottom: 100px;
+  // padding-left: 20px;
+  // padding-right: 20px;
+  clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
   transition: clip-path 0.8s;
 }
 

@@ -211,9 +211,9 @@ $(document).ready(function(){
     var buttonClicked = $(this).attr('id');
     var target = buttonClicked.replace("Button", "Overlay")
     target = '#' + target;
-    
-    $(target).animate({'left': '0'}, 500);
-    $('.popupContent').fadeIn('slow');
+
+    $(target).animate({'width': '100vw'}, 500);
+    $('.popupContent').delay(600).fadeIn('slow');
     $('.contentOverlay').css('background-color', 'rgba(0,0,0,0.7)');
     $(".overlay").css({
       "-webkit-clip-path": "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
