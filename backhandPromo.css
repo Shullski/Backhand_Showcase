@@ -320,6 +320,29 @@ body {
       .buttonOverlay span {
         font-size: 1.8vw; } }
 
+.stats {
+  padding: 0;
+  background-image: url("images/library.jpg");
+  position: relative; }
+  .stats span {
+    font-family: 'chantal';
+    font-weight: lighter;
+    color: white;
+    font-size: 15vw;
+    border: 1px solid white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+
+.leftStatistics {
+  border: 1px solid black;
+  height: inherit; }
+
+.rightStatistics {
+  border: 1px solid red;
+  position: relative;
+  height: 100%; }
+
 .expandedButtonOverlay {
   height: 20%; }
 
@@ -379,7 +402,7 @@ body {
   height: 100%;
   position: fixed;
   top: 0;
-  left: -110%;
+  left: -100%;
   width: 100%;
   z-index: 3000;
   overflow-y: scroll;
@@ -417,21 +440,6 @@ body {
   right: 0;
   left: 0;
   margin: auto; }
-
-.overlay::-webkit-scrollbar {
-  width: 7px; }
-
-/* Track */
-.overlay::-webkit-scrollbar-track {
-  background: #fcb8b5; }
-
-/* Handle */
-.overlay::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.7); }
-
-/* Handle on hover */
-.overlay::-webkit-scrollbar-thumb:hover {
-  background: #555; }
 
 /* ============== */
 /* ===== Material Design Shadows ===== */

@@ -209,8 +209,10 @@ $(document).ready(function(){
   $('#eventButton, #mapButton, #messagingButton, #groupsButton').click(function() {
     $('body').toggleClass('noScroll');
     var buttonClicked = $(this).attr('id');
-    console.log(buttonClicked);
-    $('#redOverlay').animate({'left': '0'}, 500);
+    var target = buttonClicked.replace("Button", "Overlay")
+    target = '#' + target;
+    
+    $(target).animate({'left': '0'}, 500);
     $('.popupContent').fadeIn('slow');
     $('.contentOverlay').css('background-color', 'rgba(0,0,0,0.7)');
     $(".overlay").css({
