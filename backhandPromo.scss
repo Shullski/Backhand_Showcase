@@ -300,33 +300,22 @@ body{
   }
 }
 
+
 .stats {
-  //height:500px;
   padding:0;
-  background-image: url('images/library.jpg');
-  position: relative;
-  span {
-    font-family: 'chantal';
-    font-weight: lighter;
-    color:white;
-    font-size:15vw;
-    //position: absolute;
-    border:1px solid white;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-  }
+  margin:0;
+
+  //height:;
+  background-color:rgb(30,30,30);
+
 }
 
 .leftStatistics {
-  border:1px solid black;
-  height: inherit;
+  border: 1px dotted white;
 }
-
 .rightStatistics {
-  border: 1px solid red;
-  position:relative;
-  height:100%;
+  border: 1px dashed white;
+
 }
 
 .expandedButtonOverlay {
@@ -344,30 +333,6 @@ body{
   overflow:hidden;
 }
 
-.popupContent {
-  display:none;
-  position:absolute;
-  border: 1px solid white;
-  top:0;
-  left:0;
-  bottom:0;
-  right:0;
-  margin:0;
-  padding:0;
-  max-width:900px;
-  color:white;
-
-  //overflow-y: scroll;
-  font-size:24px;
-  //border:1px solid white;
-  font-family: 'proxima-soft';
-  //margin-top:20px;
-  h2 {
-    font-family: 'chantal';
-    font-size:64px;
-  }
-
-}
 /* ============== */
 .footer {
   height:400px;
@@ -379,36 +344,39 @@ body{
   z-index: 0;
 }
 
-.wrapper {
-  padding: 0;
-  margin:0;
-  z-index: 4;
-}
-
-.expandIcon {
-  position:absolute;
-  bottom: 5%;
-  right:10%;
-}
-
-.expanded {
-  width:100%;
-  transition:1s;
-}
-
 .overlay {
   height:100vh;
   position:fixed;
-  top:0;
-  left:0;
   width:0%;
   z-index:3000;
-  //overflow-y: scroll;
-  // padding-bottom: 100px;
-  // padding-left: 20px;
-  // padding-right: 20px;
   clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
   transition: clip-path 0.8s;
+  .overlayContent {
+    position: relative;
+    height:100%;
+    width:100%;
+    padding:0;
+    margin:0;
+    .collapsePanel {
+      margin:0;
+      position:absolute;
+      height:100%;
+      width:40px;
+      background-color:rgba(255,255,255,0.3);
+      left:0%;
+      top:0%;
+      &:hover {
+        width:50px;
+        transition: 0.2s;
+        cursor:pointer;
+      }
+      .icon {
+        position:absolute;
+        bottom:50%;
+        transform: translateY(50%);
+      }
+    }
+  }
 }
 
 .contentOverlay {
@@ -420,28 +388,15 @@ body{
   z-index: 2000;
   pointer-events: none;
   transition: 0.4s;
+  padding:0;
+  margin:0;
 }
 
-.collapseContainer {
-  border-radius: 50%;
-  height:50px;
-  width:50px;
-  position:absolute;
-  right:2%;
-  top:2%;
-  border:3px solid white;
-  background-color: $red;
-  z-index: 1000;
-}
 
-.collapse {
-  position:absolute;
-  bottom:0;
-  top:0;
-  right:0;
-  left:0;
-  margin:auto;
-}
+
+
+
+/* ===== Scroll Wheel ===== */
 .overlay::-webkit-scrollbar {
     display:none;
 }
