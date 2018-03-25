@@ -206,21 +206,23 @@ $(document).ready(function(){
   //   }
   });
 
+  //================= OPENING THE OVERLAY ===============
   $('#eventButton, #mapButton, #messagingButton, #groupsButton').click(function() {
     $('body').toggleClass('noScroll');
     var buttonClicked = $(this).attr('id');
     var target = buttonClicked.replace("Button", "Overlay")
     target = '#' + target;
-
-    $(target).animate({'width': '100vw'}, 500);
+    console.log(target);
+    $(target).css('width', '100%');
     $('.popupContent').delay(600).fadeIn('slow');
-    $('.contentOverlay').css('background-color', 'rgba(0,0,0,0.7)');
-    $(".overlay").css({
+    $('.contentOverlay').addClass('contentOverlayDarken');
+    $(target).css({
       "-webkit-clip-path": "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
        "clip-path": "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
      });
   });
 
+  //=============== HOVER EFFECTS ON FEATURE BUTTONS =============
   $('#eventButton, #mapButton, #messagingButton, #groupsButton').hover(function() {
     //$(this).children('.iconContainer').animate({ 'bottom': '10%' }, 200 );
     $(this).children('.buttonOverlay').addClass('expandedButtonOverlay');
@@ -228,6 +230,19 @@ $(document).ready(function(){
     }, function(){
     $(this).children('.buttonOverlay').removeClass("expandedButtonOverlay");
     $(this).find('.expandOverlayContainer').css('right', '-20%');
+  });
+
+  //================= COLLAPSING THE OVERLAY ===============
+  $('.collapsePanel').click(function(){
+    var theOverlay = $(this).parents('.overlay');
+
+    theOverlay.css('width', '0');
+    $('.contentOverlay').removeClass('contentOverlayDarken');
+    $('body').toggleClass('noScroll');
+    theOverlay.css({
+      "-webkit-clip-path": "polygon(0 0, 30% 0, 100% 100%, 0 100%)",
+       "clip-path": "polygon(0 0, 30% 0, 100% 100%, 0 100%)"
+     });
   });
 
 

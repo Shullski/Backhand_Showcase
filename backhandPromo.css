@@ -353,13 +353,16 @@ body {
   box-shadow: inset 0 6px 9px -6px rgba(0, 0, 0, 0.7);
   z-index: 0; }
 
+/* ============ OVERLAY =========================== */
 .overlay {
   height: 100vh;
   position: fixed;
   width: 0%;
   z-index: 3000;
-  clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
-  transition: clip-path 0.8s; }
+  clip-path: polygon(0 0, 30% 0, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 30% 0, 100% 100%, 0 100%);
+  transition: clip-path 0.5s, width 0.5s;
+  overflow-x: hidden; }
   .overlay .overlayContent {
     position: relative;
     height: 100%;
@@ -372,12 +375,17 @@ body {
       height: 100%;
       width: 40px;
       background-color: rgba(255, 255, 255, 0.3);
-      left: 0%;
-      top: 0%; }
+      right: 0%;
+      top: 0%;
+      transition: 0.2s; }
       .overlay .overlayContent .collapsePanel:hover {
         width: 50px;
-        transition: 0.2s;
-        cursor: pointer; }
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.4); }
+      .overlay .overlayContent .collapsePanel:active {
+        width: 70px;
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.8); }
       .overlay .overlayContent .collapsePanel .icon {
         position: absolute;
         bottom: 50%;
@@ -395,6 +403,10 @@ body {
   padding: 0;
   margin: 0; }
 
+.contentOverlayDarken {
+  background-color: rgba(0, 0, 0, 0.7); }
+
+/* ================================================== */
 /* ===== Scroll Wheel ===== */
 .overlay::-webkit-scrollbar {
   display: none; }
