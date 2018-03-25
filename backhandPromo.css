@@ -404,7 +404,6 @@ body {
   left: 0;
   width: 0%;
   z-index: 3000;
-  overflow-y: scroll;
   clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
   transition: clip-path 0.8s; }
 
