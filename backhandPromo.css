@@ -284,6 +284,11 @@ body {
   width: 80%;
   cursor: pointer; }
 
+.featuresButton:active {
+  height: 78%;
+  width: 78%;
+  transition: 0.1s; }
+
 .iconContainer {
   position: absolute;
   top: 0;
@@ -355,7 +360,7 @@ body {
 
 /* ============ OVERLAY =========================== */
 .overlay {
-  height: 100vh;
+  height: 100%;
   position: fixed;
   width: 0%;
   z-index: 3000;
@@ -363,33 +368,48 @@ body {
   -webkit-clip-path: polygon(0 0, 30% 0, 100% 100%, 0 100%);
   transition: clip-path 0.5s, width 0.5s;
   overflow-x: hidden; }
+  .overlay .collapsePanel {
+    margin: 0;
+    position: absolute;
+    height: 100%;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.3);
+    left: 0%;
+    top: 0%;
+    transition: 0.2s;
+    z-index: 4000; }
+    .overlay .collapsePanel:hover {
+      width: 50px;
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.4); }
+    .overlay .collapsePanel:active {
+      width: 70px;
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.8); }
+    .overlay .collapsePanel .icon {
+      position: absolute;
+      bottom: 50%;
+      transform: translateY(50%); }
   .overlay .overlayContent {
+    display: none;
     position: relative;
     height: 100%;
     width: 100%;
-    padding: 0;
-    margin: 0; }
-    .overlay .overlayContent .collapsePanel {
-      margin: 0;
+    padding-bottom: 0;
+    margin: 0;
+    overflow-y: scroll; }
+    .overlay .overlayContent .wording {
       position: absolute;
-      height: 100%;
-      width: 40px;
-      background-color: rgba(255, 255, 255, 0.3);
-      right: 0%;
-      top: 0%;
-      transition: 0.2s; }
-      .overlay .overlayContent .collapsePanel:hover {
-        width: 50px;
-        cursor: pointer;
-        background-color: rgba(255, 255, 255, 0.4); }
-      .overlay .overlayContent .collapsePanel:active {
-        width: 70px;
-        cursor: pointer;
-        background-color: rgba(255, 255, 255, 0.8); }
-      .overlay .overlayContent .collapsePanel .icon {
-        position: absolute;
-        bottom: 50%;
-        transform: translateY(50%); }
+      max-width: 600px;
+      padding-left: 45px;
+      padding-right: 45px;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: 0 auto;
+      font-size: 24px;
+      color: white; }
 
 .contentOverlay {
   position: fixed;

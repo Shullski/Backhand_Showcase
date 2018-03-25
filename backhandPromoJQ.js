@@ -214,7 +214,7 @@ $(document).ready(function(){
     target = '#' + target;
     console.log(target);
     $(target).css('width', '100%');
-    $('.popupContent').delay(600).fadeIn('slow');
+    $('.overlayContent').delay(600).fadeIn('slow');
     $('.contentOverlay').addClass('contentOverlayDarken');
     $(target).css({
       "-webkit-clip-path": "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
@@ -235,8 +235,8 @@ $(document).ready(function(){
   //================= COLLAPSING THE OVERLAY ===============
   $('.collapsePanel').click(function(){
     var theOverlay = $(this).parents('.overlay');
-
     theOverlay.css('width', '0');
+    $('.overlayContent').fadeOut('fast');
     $('.contentOverlay').removeClass('contentOverlayDarken');
     $('body').toggleClass('noScroll');
     theOverlay.css({
