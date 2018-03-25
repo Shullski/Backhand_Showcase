@@ -437,6 +437,21 @@ body {
   left: 0;
   margin: auto; }
 
+.overlay::-webkit-scrollbar {
+  display: none; }
+
+/* Track */
+.overlay::-webkit-scrollbar-track {
+  background: #fcb8b5; }
+
+/* Handle */
+.overlay::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.7); }
+
+/* Handle on hover */
+.overlay::-webkit-scrollbar-thumb:hover {
+  background: #555; }
+
 /* ============== */
 /* ===== Material Design Shadows ===== */
 .card-1 {
