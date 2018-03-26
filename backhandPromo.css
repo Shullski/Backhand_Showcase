@@ -534,7 +534,7 @@ body {
 
 /* Track */
 .overlayContent::-webkit-scrollbar-track {
-  background: #fcb8b5; }
+  background: rgba(0, 0, 0, 0.4); }
 
 /* Handle */
 .overlayContent::-webkit-scrollbar-thumb {

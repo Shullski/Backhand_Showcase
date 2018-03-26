@@ -531,7 +531,7 @@ body{
 
 /* Track */
 .overlayContent::-webkit-scrollbar-track {
-    background: $lightRed;
+    background: rgba(0,0,0,.4);
 }
 
 /* Handle */
