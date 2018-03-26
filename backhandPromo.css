@@ -170,7 +170,7 @@ body {
 .headline h1 {
   color: white;
   font-size: 42px;
-  font-family: 'proxima-soft'; }
+  font-family: 'proxima-soft', sans-serif; }
 
 /* ============== */
 /*==== ABOUT ====*/
@@ -202,7 +202,7 @@ body {
   .about p {
     color: rgba(0, 0, 0, 0.8);
     font-size: 24px;
-    font-family: "proxima-soft";
+    font-family: "proxima-soft", sans-serif;
     max-width: 1200px;
     text-align: center;
     margin: 0 auto; }
@@ -212,7 +212,7 @@ body {
     width: 100%;
     display: inline-block;
     color: rgba(0, 0, 0, 0.45);
-    font-family: 'proxima-soft';
+    font-family: 'proxima-soft', sans-serif;
     font-size: 54px;
     position: relative;
     text-align: center;

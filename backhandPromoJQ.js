@@ -213,7 +213,6 @@ $(document).ready(function(){
     var target = buttonClicked.replace("Button", "Overlay")
     target = '#' + target;
     var targetChild = target + ' > .collapsePanel';
-    console.log(targetChild);
     $(target).css('width', '100%');
     $('.contentOverlay').addClass('contentOverlayDarken');
     $(target).children('.collapsePanel').delay(500).animate({left: '0'}, 0);
@@ -230,7 +229,6 @@ $(document).ready(function(){
 
   //=============== HOVER EFFECTS ON FEATURE BUTTONS =============
   $('#eventButton, #mapButton, #messagingButton, #groupsButton').hover(function() {
-    //$(this).children('.iconContainer').animate({ 'bottom': '10%' }, 200 );
     $(this).children('.buttonOverlay').addClass('expandedButtonOverlay');
     $(this).find('.expandOverlayContainer').css('right', '0');
     }, function(){
