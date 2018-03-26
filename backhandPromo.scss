@@ -309,18 +309,69 @@ body{
 .stats {
   padding:0;
   margin:0;
-
-  //height:;
-  background-color:rgb(30,30,30);
-
+  margin-bottom:0;
+  position:relative;
+  //height:inherit;
+  //@media only screen and (min-width: 600px) { height: 180px;}
+  //@media only screen and (min-width: 768px) { height: 350px;}
 }
 
 .leftStatistics {
-  border: 1px dotted white;
+  position:relative;
+  height:190px;
+  @media only screen and (min-width: 600px) { height: 260px;}
+  @media only screen and (min-width: 768px) { height: 350px;}
+  margin:0;
+  text-align: center;
+  color:white;
+  background-color:rgb(30,30,30);
+  .content{
+    position:absolute;
+    padding-left:30px;
+    padding-right:30px;
+    width:100%;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    .green {color:$green; font-weight: bold;}
+    .red {color:$red; font-weight: bold;}
+    p {
+      font-family: 'proxima-soft', sans-serif;
+      font-size:18px;
+      text-transform: uppercase;
+    }
+    h2{
+      font-family: 'chantal', sans-serif;
+      font-size: 72px;
+      padding:0;
+      margin:0;
+    }
+  }
 }
-.rightStatistics {
-  border: 1px dashed white;
 
+.rightStatistics {
+  height:190px;
+  @media only screen and (min-width: 600px) { height: 260px;}
+  @media only screen and (min-width: 768px) { height: 350px;}
+  margin:0;
+
+  background-color:rgb(30,30,30);
+  position:relative;
+  p{
+    margin:0;
+    position:absolute;
+    width:100%;
+    top:50%;
+    left:50%;
+    padding-right: 30px;
+    padding-left:30px;
+    transform: translate(-50%,-50%);
+    color:white;
+    font-family:'proxima-soft', sans-serif;
+    font-size:14px;
+    @media only screen and (min-width: 600px) { font-size:16px;}
+    @media only screen and (min-width: 768px) { font-size:20px;}
+  }
 }
 
 .expandedButtonOverlay {
@@ -338,15 +389,58 @@ body{
   overflow:hidden;
 }
 
+
+/* ============== */
+.prototype {
+  height:250px;
+  background-color:white;
+  position:relative;
+  padding:0;
+  margin:0;
+  z-index: 20000;
+  &:after {
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    opacity:0.7;
+    background: linear-gradient(to right, $red, $green , $teal, $blue, $purple);
+  }
+  .button {
+    background-color:rgb(30,30,30);
+    border-radius: 5px;
+    z-index: 20001;
+    font-size: 20px;
+    color:white;
+    text-align: center;
+    font-family: 'proxima-soft', sans-serif;
+    padding:20px 45px 20px 45px;
+    min-width:325px;
+    position:absolute;
+    top:50%; left:50%;
+    transform: translate(-50%, -50%);
+  }
+}
+/* ============== */
+
+
 /* ============== */
 .footer {
-  height:400px;
   background-image: url('images/concrete-texture.png');
   background-attachment: fixed;
   padding:0;
   margin:0;
-  box-shadow: inset 0 6px 9px -6px rgba(0,0,0,0.7);
+  box-shadow: inset 0 6px 9px -6px rgba(0,0,0,0.4);
   z-index: 0;
+  .info {
+    text-align:center;
+    padding:40px 80px 40px 80px;
+    font-family: 'proxima-soft', sans-serif;
+    font-size: 18px;
+
+  }
 }
 
 /* ============ OVERLAY =========================== */
@@ -354,7 +448,7 @@ body{
   height:100%;
   position:fixed;
   width:0%;
-  z-index:3000;
+  z-index:300000;
   clip-path: polygon(0 0, 30% 0, 100% 100%, 0 100%);
   -webkit-clip-path: polygon(0 0, 30% 0, 100% 100%, 0 100%);
   transition: clip-path 0.5s, width 0.5s;
@@ -474,4 +568,14 @@ body{
 }
 .card-5 {
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }

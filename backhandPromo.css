@@ -328,13 +328,75 @@ body {
 .stats {
   padding: 0;
   margin: 0;
-  background-color: #1e1e1e; }
+  margin-bottom: 0;
+  position: relative; }
 
 .leftStatistics {
-  border: 1px dotted white; }
+  position: relative;
+  height: 190px;
+  margin: 0;
+  text-align: center;
+  color: white;
+  background-color: #1e1e1e; }
+  @media only screen and (min-width: 600px) {
+    .leftStatistics {
+      height: 260px; } }
+  @media only screen and (min-width: 768px) {
+    .leftStatistics {
+      height: 350px; } }
+  .leftStatistics .content {
+    position: absolute;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+    .leftStatistics .content .green {
+      color: #00E985;
+      font-weight: bold; }
+    .leftStatistics .content .red {
+      color: #F75B54;
+      font-weight: bold; }
+    .leftStatistics .content p {
+      font-family: 'proxima-soft', sans-serif;
+      font-size: 18px;
+      text-transform: uppercase; }
+    .leftStatistics .content h2 {
+      font-family: 'chantal', sans-serif;
+      font-size: 72px;
+      padding: 0;
+      margin: 0; }
 
 .rightStatistics {
-  border: 1px dashed white; }
+  height: 190px;
+  margin: 0;
+  background-color: #1e1e1e;
+  position: relative; }
+  @media only screen and (min-width: 600px) {
+    .rightStatistics {
+      height: 260px; } }
+  @media only screen and (min-width: 768px) {
+    .rightStatistics {
+      height: 350px; } }
+  .rightStatistics p {
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    padding-right: 30px;
+    padding-left: 30px;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: 'proxima-soft', sans-serif;
+    font-size: 14px; }
+    @media only screen and (min-width: 600px) {
+      .rightStatistics p {
+        font-size: 16px; } }
+    @media only screen and (min-width: 768px) {
+      .rightStatistics p {
+        font-size: 20px; } }
 
 .expandedButtonOverlay {
   height: 20%; }
@@ -349,21 +411,58 @@ body {
   overflow: hidden; }
 
 /* ============== */
+.prototype {
+  height: 250px;
+  background-color: white;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  z-index: 20000; }
+  .prototype:after {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.7;
+    background: linear-gradient(to right, #F75B54, #00E985, #10DBE8, #54A0F7, #B954F7); }
+  .prototype .button {
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    z-index: 20001;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    font-family: 'proxima-soft', sans-serif;
+    padding: 20px 45px 20px 45px;
+    min-width: 325px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+
+/* ============== */
+/* ============== */
 .footer {
-  height: 400px;
   background-image: url("images/concrete-texture.png");
   background-attachment: fixed;
   padding: 0;
   margin: 0;
-  box-shadow: inset 0 6px 9px -6px rgba(0, 0, 0, 0.7);
+  box-shadow: inset 0 6px 9px -6px rgba(0, 0, 0, 0.4);
   z-index: 0; }
+  .footer .info {
+    text-align: center;
+    padding: 40px 80px 40px 80px;
+    font-family: 'proxima-soft', sans-serif;
+    font-size: 18px; }
 
 /* ============ OVERLAY =========================== */
 .overlay {
   height: 100%;
   position: fixed;
   width: 0%;
-  z-index: 3000;
+  z-index: 300000;
   clip-path: polygon(0 0, 30% 0, 100% 100%, 0 100%);
   -webkit-clip-path: polygon(0 0, 30% 0, 100% 100%, 0 100%);
   transition: clip-path 0.5s, width 0.5s;
@@ -467,5 +566,20 @@ body {
 
 .card-5 {
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+     supported by Chrome and Opera */ }
 
 /*# sourceMappingURL=backhandPromo.css.map */
