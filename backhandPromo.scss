@@ -526,22 +526,21 @@ body{
 
 /* ===== Scroll Wheel ===== */
 .overlayContent::-webkit-scrollbar {
-    display:none;
-    pointer-events: none;
+  width:6px;
 }
 
 /* Track */
-.overlay::-webkit-scrollbar-track {
+.overlayContent::-webkit-scrollbar-track {
     background: $lightRed;
 }
 
 /* Handle */
-.overlay::-webkit-scrollbar-thumb {
+.overlayContent::-webkit-scrollbar-thumb {
     background: rgba(0,0,0,.7);
 }
 
 /* Handle on hover */
-.overlay::-webkit-scrollbar-thumb:hover {
+.overlayContent::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
 
