@@ -373,18 +373,18 @@ body {
     padding: 0;
     position: absolute;
     height: 100%;
-    width: 50px;
+    width: 60px;
     background-color: rgba(255, 255, 255, 0.3);
-    left: -50px;
+    left: -60px;
     top: 0%;
     transition: 0.2s;
     z-index: 4000; }
     .overlay .collapsePanel:hover {
-      width: 60px;
+      width: 80px;
       cursor: pointer;
       background-color: rgba(255, 255, 255, 0.4); }
     .overlay .collapsePanel:active {
-      width: 70px;
+      width: 90px;
       cursor: pointer;
       background-color: rgba(255, 255, 255, 0.8); }
     .overlay .collapsePanel .icon {
@@ -401,6 +401,7 @@ body {
     overflow-y: hidden; }
     .overlay .overlayContent .wording {
       position: absolute;
+      width: 80%;
       max-width: 600px;
       padding-left: 45px;
       padding-right: 45px;
@@ -423,9 +424,6 @@ body {
   transition: 0.4s;
   padding: 0;
   margin: 0; }
-
-.panelExtendRight {
-  left: 0; }
 
 .contentOverlayDarken {
   background-color: rgba(0, 0, 0, 0.7); }

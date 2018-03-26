@@ -234,7 +234,6 @@ $(document).ready(function(){
     $(this).children('.buttonOverlay').addClass('expandedButtonOverlay');
     $(this).find('.expandOverlayContainer').css('right', '0');
     }, function(){
-
     $(this).children('.buttonOverlay').removeClass("expandedButtonOverlay");
     $(this).find('.expandOverlayContainer').css('right', '-20%');
   });
@@ -243,7 +242,7 @@ $(document).ready(function(){
   $('.collapsePanel').click(function(){
     var theOverlay = $(this).parents('.overlay');
     theOverlay.css('width', '0');
-    $(theOverlay).children('.collapsePanel').animate({left: '-50px'}, 0);
+    $(theOverlay).children('.collapsePanel').animate({left: '-60px'}, 0);
     $('.overlayContent').fadeOut(100);
     $('.contentOverlay').removeClass('contentOverlayDarken');
     $('body').toggleClass('noScroll');
