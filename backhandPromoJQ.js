@@ -212,9 +212,14 @@ $(document).ready(function(){
     var buttonClicked = $(this).attr('id');
     var target = buttonClicked.replace("Button", "Overlay")
     target = '#' + target;
-    console.log(target);
+    var targetChild = target + ' > .collapsePanel';
+    console.log(targetChild);
     $(target).css('width', '100%');
     $('.contentOverlay').addClass('contentOverlayDarken');
+    $(target).children('.collapsePanel').delay(500).animate({left: '0'}, 0);
+
+    //SHOW OVERFLOW OF TOGGLED OVERLAY **IE & EDGE FIX** -----
+    $(target).find('.overlayContent').css('overflow-y', 'scroll');
 
     $('.overlayContent').delay(600).fadeIn(200);
     $(target).css({
@@ -229,6 +234,7 @@ $(document).ready(function(){
     $(this).children('.buttonOverlay').addClass('expandedButtonOverlay');
     $(this).find('.expandOverlayContainer').css('right', '0');
     }, function(){
+
     $(this).children('.buttonOverlay').removeClass("expandedButtonOverlay");
     $(this).find('.expandOverlayContainer').css('right', '-20%');
   });
@@ -237,6 +243,7 @@ $(document).ready(function(){
   $('.collapsePanel').click(function(){
     var theOverlay = $(this).parents('.overlay');
     theOverlay.css('width', '0');
+    $(theOverlay).children('.collapsePanel').animate({left: '-50px'}, 0);
     $('.overlayContent').fadeOut(100);
     $('.contentOverlay').removeClass('contentOverlayDarken');
     $('body').toggleClass('noScroll');

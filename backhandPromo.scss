@@ -363,15 +363,16 @@ body{
 
   .collapsePanel {
     margin:0;
+    padding:0;
     position:absolute;
     height:100%;
-    width:40px;
+    width:50px;
     background-color:rgba(255,255,255,0.3);
-    left:0%;
+    left:-50px;
     top:0%;
     transition: 0.2s;
     z-index: 4000;
-    &:hover {width:50px; cursor:pointer; background-color:rgba(255,255,255,0.4);}
+    &:hover {width:60px; cursor:pointer; background-color:rgba(255,255,255,0.4);}
     &:active {width:70px; cursor:pointer; background-color:rgba(255,255,255,0.8);}
     .icon {
       position:absolute;
@@ -385,9 +386,9 @@ body{
     position: relative;
     height:100%;
     width:100%;
-    padding-bottom:0;
+    padding:0;
     margin:0;
-    overflow-y: scroll;
+    overflow-y: hidden;
     //pointer-events: none;
     .wording {
       position:absolute;
@@ -417,6 +418,10 @@ body{
   padding:0;
   margin:0;
 }
+
+.panelExtendRight {
+  left:0;
+}
 .contentOverlayDarken {
   background-color: rgba(0,0,0,0.7);
 }
@@ -428,8 +433,9 @@ body{
 
 
 /* ===== Scroll Wheel ===== */
-.overlay::-webkit-scrollbar {
+.overlayContent::-webkit-scrollbar {
     display:none;
+    pointer-events: none;
 }
 
 /* Track */
