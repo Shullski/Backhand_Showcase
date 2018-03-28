@@ -21,7 +21,8 @@
 
 body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  overflow-x: hidden; }
 
 .row::after {
   content: '';
@@ -120,6 +121,59 @@ body {
   font-family: 'proxima soft';
   color: white;
   font-size: 48px; }
+
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-right: 2%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 50000;
+  font-family: 'proxima-soft' ,sans-serif;
+  font-size: 16px;
+  width: 100%; }
+  .nav div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0%;
+    width: 100%;
+    background-image: url("images/tweed.png");
+    transition: 0.2s; }
+    .nav div:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.5;
+      background: linear-gradient(to right, #F75B54, #00E985, #10DBE8, #54A0F7, #B954F7); }
+  .nav li {
+    float: right; }
+    .nav li a {
+      display: block;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      padding: 20px 0px 20px 50px;
+      position: relative;
+      cursor: pointer; }
+      .nav li a::after {
+        display: block;
+        content: '';
+        background-color: white;
+        position: absolute;
+        bottom: 15px;
+        right: 0;
+        width: 0;
+        height: 2px;
+        transition: width 0.2s; }
+      .nav li a:hover::after {
+        width: 30%; }
 
 .jumboTron {
   height: 100vh;
@@ -441,6 +495,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); }
+    .prototype .button:hover {
+      background-color: #282828; }
 
 /* ============== */
 /* ============== */
@@ -528,14 +584,14 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
-  z-index: 2000;
+  z-index: 100000;
   pointer-events: none;
-  transition: 0.4s;
+  transition: 0.5s;
   padding: 0;
   margin: 0; }
 
 .contentOverlayDarken {
-  background-color: rgba(0, 0, 0, 0.7); }
+  background-color: rgba(0, 0, 0, 0.85); }
 
 /* ================================================== */
 /* ===== Scroll Wheel ===== */

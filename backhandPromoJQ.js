@@ -141,6 +141,11 @@ function isInTransitionZone(position) {
   }
 }
 
+function getScrollPosition(element) {
+  var position = $(element).position().top;
+  return position;
+}
+
 //Determines if the user is scrolling up (true) or down (false)
 function isScrollingUp(pos) {
   if(lastScrollPosition > pos) {
@@ -173,11 +178,13 @@ function getHSLText(color) {
 
 /*===============*/
 $(document).ready(function(){
-  var offset = $('#mapButton').offset();
-
-  var top = offset.top;
-  var left = offset.left;
-  console.log(offset);
+  var position = $(this).scrollTop();
+  var expandNavPosition = getScrollPosition('#aboutScroll');
+  if(position > expandNavPosition - 60) {
+    $('.nav > div').css('height', '100%');
+  }else{
+    $('.nav > div').css('height', '0%');
+  }
 
   //Get the positions of each section for color fading
   // var greenPosition = ($('.map').position().top) - ($('.map').height()/2);
@@ -186,24 +193,13 @@ $(document).ready(function(){
 
   $(document).scroll(function() {
     var position = $(this).scrollTop();
-
-    // var greenPosition = ($('.map').position().top) - ($('.map').height()/2);
-    // var bluePosition = ($('.messaging').position().top) - ($('.messaging').height()/2);
-    // var purplePosition = ($('.groups').position().top) - ($('.groups').height()/2);
-  //
-  //   if(position > greenPosition && position < bluePosition) {
-  //     $('.map, .events, .messaging, .groups').css('background-color', greenHex);
-  //     $('.map > .aside').fadeIn('500');
-  //   }else if (position > bluePosition && position < purplePosition) {
-  //     $('.map, .events, .messaging, .groups').css('background-color', blueHex);
-  //     $('.messaging > .aside').fadeIn('fast ');
-  //     //$('.messaging > .aside').animate({right: '30px'}, 300);
-  //   }else if (position > purplePosition) {
-  //     $('.map, .events, .messaging, .groups').css('background-color', purpleHex);
-  //     $('.groups > .aside').fadeIn('500');
-  //   }else {
-  //     $('.map, .events, .messaging, .groups').css('background-color', redHex);
-  //   }
+    console.log(position);
+    var expandNavPosition = getScrollPosition('#aboutScroll');
+    if(position > expandNavPosition - 60) {
+      $('.nav > div').css('height', '100%');
+    }else{
+      $('.nav > div').css('height', '0%');
+    }
   });
 
   //================= OPENING THE OVERLAY ===============
@@ -250,23 +246,21 @@ $(document).ready(function(){
      });
   });
 
-
-
-  // SMOOTH SCROLLING
-  // $(".campusesButton").on('click', function(event) {
-  //   // Make sure this.hash has a value before overriding default behavior
-  //   if (this.hash !== "") {
-  //     // Prevent default anchor click behavior
-  //     event.preventDefault();
-  //     // Store hash
-  //     var hash = this.hash;
-  //     $('html, body').animate({
-  //       scrollTop: $(hash).offset().top
-  //     }, 800, function(){
-  //       // Add hash (#) to URL when done scrolling (default click behavior)
-  //       window.location.hash = hash;
-  //     });
-  //   }
-  // });
+  //SMOOTH SCROLLING
+  $('a[href*="#"]').on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+      // Store hash
+      var hash = this.hash;
+      $('html, body').stop().animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    }
+  });
 
 });

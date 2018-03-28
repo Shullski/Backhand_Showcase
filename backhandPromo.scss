@@ -20,6 +20,7 @@ $lightRed: lighten($red, 20%);
 body{
   margin:0;
   padding:0;
+  overflow-x: hidden;
 }
 
 .row::after {
@@ -83,6 +84,67 @@ body{
   color:white;
   font-size: 48px;
 }
+
+.nav {
+  list-style-type: none;
+  margin:0;
+  padding:0;
+  padding-right: 2%;
+  position:fixed;
+  right:0;
+  top:0;
+  z-index: 50000;
+  font-family: 'proxima-soft' ,sans-serif;
+  font-size:16px;
+  width:100%;
+  div {
+    position:absolute;
+    top:0; left:0;
+    height:0%;
+    width:100%;
+    background-image:url('images/tweed.png');
+    transition:0.2s;
+    &:after{
+      content:'';
+      display:block;
+      position:absolute;
+      top:0; left:0;
+      width:100%;
+      height:100%;
+      opacity:0.5;
+      background: linear-gradient(to right, $red, $green , $teal, $blue, $purple);
+
+    }
+  }
+  li {
+    float:right;
+    a {
+      display:block;
+      color:white;
+      text-align: center;
+      text-decoration: none;
+      padding:20px 0px 20px 50px;
+      position:relative;
+      //border:1px solid white;
+      cursor:pointer;
+      &::after{
+        display:block;
+        content:'';
+        background-color:white;
+        position:absolute;
+        bottom:15px;
+        right:0;
+        width:0;
+        height:2px;
+        transition: width 0.2s;
+      }
+      &:hover::after {
+        width:30%;
+      }
+    }
+  }
+}
+
 .jumboTron {
   height:100vh;
   min-height:700px;
@@ -421,6 +483,9 @@ body{
     position:absolute;
     top:50%; left:50%;
     transform: translate(-50%, -50%);
+    &:hover {
+      background-color:rgb(40,40,40);
+    }
   }
 }
 /* ============== */
@@ -508,14 +573,14 @@ body{
   left:0;
   height:100%;
   width:100%;
-  z-index: 2000;
+  z-index: 100000;
   pointer-events: none;
-  transition: 0.4s;
+  transition: 0.5s;
   padding:0;
   margin:0;
 }
 .contentOverlayDarken {
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.85);
 }
 /* ================================================== */
 
