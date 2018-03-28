@@ -246,7 +246,7 @@ body {
     float: right; }
   .about h2 {
     color: rgba(0, 0, 0, 0.8);
-    font-family: 'chantal';
+    font-family: 'chantal',sans-serif;
     font-weight: bold;
     font-size: 72px;
     text-align: center;
@@ -364,7 +364,7 @@ body {
   transition: height   0.2s;
   overflow: hidden; }
   .buttonOverlay span {
-    font-family: 'chantal';
+    font-family: 'chantal', sans-serif;
     position: absolute;
     text-align: center;
     color: white;
