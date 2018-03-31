@@ -1,31 +1,4 @@
-//Main colors in HSB
-
-var red = {
-  hue: 3,
-  saturation: 66,
-  lightness: 65
-}
-var green = {
-  hue: 154,
-  saturation: 100,
-  lightness: 46
-}
-var teal = {
-  hue: 184,
-  saturation: 87,
-  lightness: 49
-}
-var blue = {
-  hue: 212,
-  saturation: 91,
-  lightness: 65
-}
-var purple = {
-  hue: 277,
-  saturation: 91,
-  lightness: 65
-}
-
+//Main colors
 /* ============== */
 var redHex = '#F75B54';
 var greenHex = '#00E985';
@@ -38,109 +11,8 @@ var purpleHex = '#B954F7';
 //to determine if scrolling up or down
 var lastScrollPosition = 0;
 
-//Variable for fading colors
-var changeDistance = 284;
 
-//Calculate the difference in values between main colors for fading
-//Always returns a positive value
-function calcHSLDifference(starting, next) {
-  var result = {};
-  var hueDiff = next.hue - starting.hue;
-  //hueDiff = -hueDiff > 0 ? -hueDiff : hueDiff;
-
-  var saturationDiff = next.saturation - starting.saturation;
-  //saturationDiff = -saturationDiff > 0 ? -saturationDiff : saturationDiff;
-
-  var lightnessDiff = next.lightness - starting.lightness;
-  //brightnessDiff = -brightnessDiff > 0 ? -brightnessDiff : brightnessDiff;
-  result = {
-    hue: hueDiff,
-    saturation: saturationDiff,
-    lightness: lightnessDiff
-  }
-  return result;
-}
-
-//How much the color must change per scroll
-function calcChangePerPixel(section) {
-  var goingTo = section[1];
-  var hueChange = 0;
-  var saturationChange = 0;
-  var lightnessChange = 0;
-
-  if(goingTo == 'events') {
-    hueChange = red.hue - green.hue;
-    //hueChange = -hueChange > 0 ? -hueChange : hueChange;
-
-    saturationChange = red.saturation - green.saturation;
-    //saturationChange = -saturationChange > 0 ? -saturationChange : saturationChange;
-
-    lightnessChange = red.lightness - green.lightness;
-    //lightnessChange = -lightnessChange > 0 ? -lightnessChange : lightnessChange;
-
-  }else if (goingTo == 'messaging') {
-    hueChange = green.hue - blue.hue;
-    //hueChange = -hueChange > 0 ? -hueChange : hueChange;
-
-    saturationChange = green.saturation - blue.saturation;
-    //saturationChange = -saturationChange > 0 ? -saturationChange : saturationChange;
-
-    lightnessChange = green.lightness - blue.lightness;
-    //lightnessChange = -lightnessChange > 0 ? -lightnessChange : lightnessChange;
-
-  }else if (goingTo == 'groups') {
-    hueChange = blue.hue - purple.hue;
-    //hueChange = -hueChange > 0 ? -hueChange : hueChange;
-
-    saturationChange = blue.saturation - purple.saturation;
-    //saturationChange = -saturationChange > 0 ? -saturationChange : saturationChange;
-
-    lightnessChange = blue.lightness - purple.lightness;
-    //lightnessChange = -lightnessChange > 0 ? -lightnessChange : lightnessChange;
-  }
-  return [hueChange, saturationChange, lightnessChange];
-}
-
-//Get the position of a fade start
-function getFadePos(section) {
-  var fadeHeightTop = ($('.'+ section).position().top) + ($('.'+section).height() / 2);
-  fadeHeightTop = Math.round(fadeHeightTop);
-  var fadeHeightBottom = ($('.'+ section).position().top) + ($('.'+section).height()-50);
-  fadeHeightBottom = Math.round(fadeHeightBottom);
-  return [fadeHeightTop, fadeHeightBottom];
-}
-
-//Get the height of the area that will be faded across
-function getFadeHeight(section) {
-  var fadeHeightTop = ($('.'+ section).position().top) + ($('.'+section).height() / 2);
-  fadeHeightTop = Math.round(fadeHeightTop);
-  var fadeHeightBottom = ($('.'+ section).position().top) + ($('.'+section).height()-50);
-  fadeHeightBottom = Math.round(fadeHeightBottom);
-  return [fadeHeightTop, fadeHeightBottom];
-}
-
-//Determines if we are in a zone to fade colors
-//and return areas that are being faded
-function isInTransitionZone(position) {
-  var transition = new Array();
-  var mapFade = getFadeHeight('map');
-  var eventsFade = getFadeHeight('events');
-  var messagingFade = getFadeHeight('messaging');
-  var groupsFade = getFadeHeight('groups');
-  if(position > mapFade[0] && position < mapFade[1]){
-    transition = ['map', 'events'];
-    return transition;
-  }else if (position > eventsFade[0] && position < eventsFade[1]) {
-    transition = ['events', 'messaging'];
-    return transition;
-  }else if (position > messagingFade[0] && position < messagingFade[1]) {
-    transition = ['messaging', 'groups'];
-    return transition;
-  }else{
-    return false;
-  }
-}
-
+//Returns how far down an element is on page
 function getScrollPosition(element) {
   var position = $(element).position().top;
   return position;
@@ -157,24 +29,10 @@ function isScrollingUp(pos) {
   }
 }
 
-//Returns which section is currently being transitioned to
-function scrollingTo(pos) {
-  var goingTo = isInTransitionZone(pos);
-  if(isScrollingUp(pos)) {
-    goingTo = goingTo[0];
-  }else{
-    goingTo = goingTo[1];
-  }
-  return goingTo;
-}
+//Responisve Design
+var mobileBreakpoint = 600;
+var tabletBreakpoint = 769;
 
-function getHSLText(color) {
-  hue = color[0]/changeDistance;
-  console.log('hue: ' + hue);
-  saturation = color[1]/changeDistance;
-  lightness = color[2]/changeDistance;
-  return [hue, saturation, lightness];
-}
 
 /*===============*/
 $(document).ready(function(){
@@ -186,10 +44,15 @@ $(document).ready(function(){
     $('.nav > div').css('height', '0%');
   }
 
-  //Get the positions of each section for color fading
-  // var greenPosition = ($('.map').position().top) - ($('.map').height()/2);
-  // var bluePosition = ($('.messaging').position().top) - ($('.messaging').height()/2);
-  // var purplePosition = ($('.groups').position().top) - ($('.groups').height()/2);
+  //Remove mobile nav overlay
+  $(window).on('resize', function(){
+    var width = $(this).outerWidth();
+    if (width > tabletBreakpoint) {
+      $('.menuOverlay').fadeOut();
+      $('body').css('overflow-y', 'scroll');
+      $('.hamburger').removeClass('change');
+    }
+  });
 
   $(document).scroll(function() {
     var position = $(this).scrollTop();
@@ -245,6 +108,23 @@ $(document).ready(function(){
        "clip-path": "polygon(0 0, 30% 0, 100% 100%, 0 100%)"
      });
   });
+
+  //================= COLLAPSING THE OVERLAY ===============
+  $('.hamburger').click(function(){
+    if ($(this).hasClass('change')) {
+      $(this).toggleClass('change');
+      $('body').css('overflow-y', 'scroll');
+      $('.menuOverlay').fadeOut('fast');
+      $('.menuOverlay > div').css('transform', 'translate(-50%, -20%) scale(0.8)');
+
+    } else {
+      $(this).toggleClass('change');
+      $('body').css('overflow-y', 'hidden');
+      $('.menuOverlay').fadeIn('fast');
+      $('.menuOverlay > div').css('transform', 'translate(-50%, -50%) scale(1.0)');
+    }
+  });
+
 
   //SMOOTH SCROLLING
   $('a[href*="#"]').on('click', function(event) {

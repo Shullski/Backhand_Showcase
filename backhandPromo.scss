@@ -93,11 +93,12 @@ body{
   position:fixed;
   right:0;
   top:0;
-  z-index: 50000;
+  z-index: 499;
   font-family: 'proxima-soft' ,sans-serif;
   font-size:16px;
   width:100%;
-  div {
+  //border:3px solid green;
+  #navOverlay {
     position:absolute;
     top:0; left:0;
     height:0%;
@@ -113,11 +114,12 @@ body{
       height:100%;
       opacity:0.5;
       background: linear-gradient(to right, $red, $green , $teal, $blue, $purple);
-
     }
   }
   li {
     float:right;
+    display:none;
+    @media only screen and (min-width: 768px) {display: inline-block;}
     a {
       display:block;
       color:white;
@@ -142,6 +144,97 @@ body{
         width:30%;
       }
     }
+
+    //LOGO
+    &:last-child {
+      font-family:'chantal', sans-serif;
+      display:inline-block;
+      float:left;
+      font-size:20px;
+      text-align: center;
+      a {
+        padding:20px 30px 20px 30px;
+        transition: 0.2s;
+        &::after{ display:none; }
+        &:hover{ color: rgb(200,200,200); }
+      }
+    }
+  }
+}
+.hamburger {
+    //height:100%;
+    display:block;
+    @media only screen and (min-width: 768px) {display: none;}
+    position: fixed;
+    padding:11px;
+    top:0px;
+    right:5px;
+    z-index: 900000000;
+    //border:3px solid green;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 8px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+.menuOverlay {
+  position:fixed;
+  display:none;
+  z-index: 500;
+  background-color:rgba(30,30,30,0.9);
+  top:0;
+  left:0;
+  height:100vh;
+  //min-height:800px;
+  width:100%;
+  //overflow-y: scroll;
+
+  &::after {
+    content:'';
+    display:block;
+    position:absolute;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    opacity:0.2;
+    background: linear-gradient(to right, $red, $green , $teal, $blue, $purple);
+  }
+  .container {
+    z-index:100000;
+    position:absolute;
+    color:white;
+    font-family: 'chantal', sans-serif;
+    font-size:48px;
+    text-align: center;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -20%) scale(0.8);
+    transition:0.5s;
+    //overflow:visible;
+
+    div {
+      transition:0.3s;
+      cursor:pointer;
+      &:hover {color:rgb(150,150,150);}
+    }
+
   }
 }
 
@@ -459,7 +552,7 @@ body{
   position:relative;
   padding:0;
   margin:0;
-  z-index: 20000;
+  z-index: 400;
   &:after {
     display:block;
     position:absolute;
