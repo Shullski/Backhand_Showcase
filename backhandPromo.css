@@ -148,7 +148,7 @@ body {
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
+      width: inherit;
       height: 100%;
       opacity: 0.5;
       background: linear-gradient(to right, #F75B54, #00E985, #10DBE8, #54A0F7, #B954F7); }
@@ -181,6 +181,7 @@ body {
     .nav li:last-child {
       font-family: 'chantal', sans-serif;
       display: inline-block;
+      position: relative;
       float: left;
       font-size: 20px;
       text-align: center; }
@@ -198,11 +199,14 @@ body {
   padding: 11px;
   top: 0px;
   right: 5px;
-  z-index: 900000000;
-  cursor: pointer; }
+  z-index: 600;
+  cursor: pointer;
+  transition: background-color 0.1s; }
   @media only screen and (min-width: 768px) {
     .hamburger {
       display: none; } }
+  .hamburger:hover .bar1, .hamburger:hover .bar2, .hamburger:hover .bar3 {
+    background-color: #b4b4b4; }
 
 .bar1, .bar2, .bar3 {
   width: 35px;
@@ -247,14 +251,17 @@ body {
     position: absolute;
     color: white;
     font-family: 'chantal', sans-serif;
-    font-size: 48px;
+    font-size: 38px;
     text-align: center;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -20%) scale(0.8);
-    transition: 0.5s; }
+    transform: translate(-50%, -55%) scale(1);
+    transition: 0.3s; }
     .menuOverlay .container div {
-      transition: 0.3s;
+      position: relative;
+      bottom: -100px;
+      opacity: 0;
+      transition: color 0.2s;
       cursor: pointer; }
       .menuOverlay .container div:hover {
         color: #969696; }
@@ -555,7 +562,8 @@ body {
   position: relative;
   padding: 0;
   margin: 0;
-  z-index: 400; }
+  z-index: 400;
+  background-image: url("images/topography.png"); }
   .prototype:after {
     display: block;
     position: absolute;

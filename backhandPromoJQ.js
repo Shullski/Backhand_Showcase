@@ -114,14 +114,26 @@ $(document).ready(function(){
     if ($(this).hasClass('change')) {
       $(this).toggleClass('change');
       $('body').css('overflow-y', 'scroll');
+
+
       $('.menuOverlay').fadeOut('fast');
-      $('.menuOverlay > div').css('transform', 'translate(-50%, -20%) scale(0.8)');
+      //$('.menuOverlay > div').css('transform', 'translate(-50%, -35%) scale(0.9)');
 
     } else {
       $(this).toggleClass('change');
       $('body').css('overflow-y', 'hidden');
+
+      var delay = 150;
+        $('.menuOverlay > .container > div').each(function(){
+            $(this).animate({
+  				        opacity: '1',
+                 bottom: '0'
+  			}, delay );
+            delay *= 2;
+        });
+
       $('.menuOverlay').fadeIn('fast');
-      $('.menuOverlay > div').css('transform', 'translate(-50%, -50%) scale(1.0)');
+      //$('.menuOverlay > div').css('transform', 'translate(-50%, -50%) scale(1.0)');
     }
   });
 
