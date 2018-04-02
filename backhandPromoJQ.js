@@ -47,10 +47,12 @@ $(document).ready(function(){
   //Remove mobile nav overlay
   $(window).on('resize', function(){
     var width = $(this).outerWidth();
-    if (width > tabletBreakpoint) {
-      $('.menuOverlay').fadeOut();
-      $('body').css('overflow-y', 'scroll');
-      $('.hamburger').removeClass('change');
+    if($('.hamburger').hasClass('change')) {
+      if (width > tabletBreakpoint) {
+        $('.menuOverlay').fadeOut();
+        $('body').css('overflow-y', 'scroll');
+        $('.hamburger').removeClass('change');
+      }
     }
   });
 
@@ -67,7 +69,7 @@ $(document).ready(function(){
 
   //================= OPENING THE OVERLAY ===============
   $('#eventButton, #mapButton, #messagingButton, #groupsButton').click(function() {
-    $('body').toggleClass('noScroll');
+    $('body').css('overflow-y', 'hidden');
     var buttonClicked = $(this).attr('id');
     var target = buttonClicked.replace("Button", "Overlay")
     target = '#' + target;
@@ -102,7 +104,7 @@ $(document).ready(function(){
     $(theOverlay).children('.collapsePanel').animate({left: '-60px'}, 0);
     $('.overlayContent').fadeOut(100);
     $('.contentOverlay').removeClass('contentOverlayDarken');
-    $('body').toggleClass('noScroll');
+    $('body').css('overflow-y', 'scroll');
     theOverlay.css({
       "-webkit-clip-path": "polygon(0 0, 30% 0, 100% 100%, 0 100%)",
        "clip-path": "polygon(0 0, 30% 0, 100% 100%, 0 100%)"
@@ -123,13 +125,13 @@ $(document).ready(function(){
       $(this).toggleClass('change');
       $('body').css('overflow-y', 'hidden');
 
-      var delay = 150;
+      var delay = 300;
         $('.menuOverlay > .container > div').each(function(){
             $(this).animate({
   				        opacity: '1',
                  bottom: '0'
   			}, delay );
-            delay *= 2;
+            delay *= 1.5;
         });
 
       $('.menuOverlay').fadeIn('fast');
