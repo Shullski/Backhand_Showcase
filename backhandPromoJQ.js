@@ -36,6 +36,9 @@ var tabletBreakpoint = 769;
 
 /*===============*/
 $(document).ready(function(){
+
+  var prototypeHeight = $('.footer').height();
+  $('.prototype').css('margin-bottom', prototypeHeight);
   var position = $(this).scrollTop();
   var expandNavPosition = getScrollPosition('#aboutScroll');
   if(position > expandNavPosition - 60) {
@@ -47,6 +50,8 @@ $(document).ready(function(){
   //Remove mobile nav overlay
   $(window).on('resize', function(){
     var width = $(this).outerWidth();
+    prototypeHeight = $('.footer').height();
+    $('.prototype').css('margin-bottom', prototypeHeight);
     if($('.hamburger').hasClass('change')) {
       if (width > tabletBreakpoint) {
         $('.menuOverlay').fadeOut();
@@ -140,6 +145,22 @@ $(document).ready(function(){
   });
 
 
+  //============== CLICKABLE PROTOTYPE ================
+  $('#prototypeToggle').click(function(){
+    $('.prototype').css('height', '580');
+    $('.prototype').find('span').fadeOut('0');
+
+    $(this).animate({top: '6%'}, 800);
+    $(this).css('height','40px');
+    $(this).css('width','40px');
+
+    $(this).css('border-radius','50%');
+    $('.prototype').find('img').delay('700').fadeIn('slow');
+    $('.prototype').children('iframe').delay('600').fadeIn('200');
+
+  });
+
+
   //SMOOTH SCROLLING
   $('a[href*="#"]').on('click', function(event) {
     // Make sure this.hash has a value before overriding default behavior
@@ -149,10 +170,10 @@ $(document).ready(function(){
       // Store hash
       var hash = this.hash;
       $('html, body').stop().animate({
-        scrollTop: $(hash).offset().top
+        scrollTop: ($(hash).offset().top - $('.nav').height() - 10)
       }, 800, function(){
         // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
+        //window.location.hash = hash;
       });
     }
   });
