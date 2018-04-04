@@ -10,12 +10,17 @@ var purpleHex = '#B954F7';
 //To simulate "passing by reference"
 //to determine if scrolling up or down
 var lastScrollPosition = 0;
-
+var windowHeight = 0;
 
 //Returns how far down an element is on page
 function getScrollPosition(element) {
   var position = $(element).position().top;
   return position;
+}
+
+///Determine which nav option the user is currently scrolled over
+function getScrollArea(pos) {
+
 }
 
 //Determines if the user is scrolling up (true) or down (false)
@@ -37,6 +42,19 @@ var tabletBreakpoint = 769;
 /*===============*/
 $(document).ready(function(){
 
+  windowHeight = $(window).height();
+  //Element scroll positions------
+  var homePosition = getScrollPosition('#jumbotronScroll');
+  var featuresPosition = getScrollPosition('#featuresScroll');
+  var aboutPosition = getScrollPosition('#aboutScroll');
+  var prototypePosition = getScrollPosition('#prototypeScroll');
+  var problemPosition = getScrollPosition('#problemScroll');
+
+  function getScrollArea(pos) {
+
+  }
+  //------------------------------
+
   var prototypeHeight = $('.footer').height();
   $('.prototype').css('margin-bottom', prototypeHeight);
   var position = $(this).scrollTop();
@@ -49,6 +67,7 @@ $(document).ready(function(){
 
   //Remove mobile nav overlay
   $(window).on('resize', function(){
+    windowHeight = $(window).height();
     var width = $(this).outerWidth();
     prototypeHeight = $('.footer').height();
     $('.prototype').css('margin-bottom', prototypeHeight);
@@ -63,7 +82,19 @@ $(document).ready(function(){
 
   $(document).scroll(function() {
     var position = $(this).scrollTop();
-    console.log(position);
+
+    if (position < homePosition + (windowHeight/2)) {
+      $('.scrollIndicator > #home').find('.inner').css({'height': '140%','width': '140%'});
+    } else if (position > homePosition + (windowHeight/2) && position < featuresPosition + (windowHeight/2)) {
+      console.log('about');
+    } else if (position > featuresPosition + (windowHeight/2) && position < problemPosition - (windowHeight/2)) {
+      console.log('features');
+    }else{
+      console.log('problem');
+    }
+
+
+
     var expandNavPosition = getScrollPosition('#aboutScroll');
     if(position > expandNavPosition - 60) {
       $('.nav > div').css('height', '100%');
@@ -147,16 +178,28 @@ $(document).ready(function(){
 
   //============== CLICKABLE PROTOTYPE ================
   $('#prototypeToggle').click(function(){
-    $('.prototype').css('height', '580');
-    $('.prototype').find('span').fadeOut('0');
+    if($(this).hasClass('.toggled')) {
+      $(this).toggleClass('.toggled');
+      $('.prototype').css('height', '580');
+      $('.prototype').find('span').fadeOut('20');
+      $(this).animate({top: '6%'}, 800);
+      $(this).css('height','40px');
+      $(this).css('width','40px');
+      $(this).css('border-radius','50%');
+      $('.prototype').find('img').delay('700').fadeIn('slow');
+      $('.prototype').children('iframe').delay('600').fadeIn('200');
+    }else{
+      $('.prototype').children('iframe').fadeOut('50');
+      $('.prototype').find('img').fadeOut('fast');
+      $(this).toggleClass('.toggled');
+      $('.prototype').css('height', '250');
+      $('.prototype').find('span').delay('1000').fadeIn('200');
+      $(this).animate({top: '50%'}, 800);
+      $(this).css('height','60px');
+      $(this).css('width','300px');
+      $(this).css('border-radius','5px');
 
-    $(this).animate({top: '6%'}, 800);
-    $(this).css('height','40px');
-    $(this).css('width','40px');
-
-    $(this).css('border-radius','50%');
-    $('.prototype').find('img').delay('700').fadeIn('slow');
-    $('.prototype').children('iframe').delay('600').fadeIn('200');
+    }
 
   });
 

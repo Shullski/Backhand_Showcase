@@ -21,6 +21,7 @@ body{
   margin:0;
   padding:0;
   overflow-x: hidden;
+  background-color:white;
 }
 
 .row::after {
@@ -31,6 +32,12 @@ body{
 
 [class*="col-"] {
   width:100%;
+  float: left;
+  padding: 15px;
+}
+
+.sCol {
+  width:50%;
   float: left;
   padding: 15px;
 }
@@ -70,19 +77,18 @@ body{
 
 
 /* Site */
-.noScroll {
-  overflow-y:hidden;
-  //pointer-events: none;
-}
+.noScroll {overflow-y:hidden;}
 
 .scrollIndicator {
   position: fixed;
   z-index: 600;
-  width:35px;
+  width:25px;
   left:0;
   top:50%;
   transform: translateY(-50%);
   font-size: 48px;
+  display:none;
+  @media only screen and (min-width: 768px) {display: block;}
   .wrapper {
     width:100%;
     padding-bottom:100%;
@@ -97,21 +103,17 @@ body{
       border-radius:50%;
       padding:0;
       position:absolute;
-      &::after {
-        content: '';
-        display:block;
-        border-radius:50%;
-        padding:0; margin:0;
-        background-color: $red;
-        height:0%; width:0%;
+      .inner {
         position:absolute;
-        top:50%; left:50%;
-        transform:translate(-50%,-50%);
-        transition:0.2s;
-      }
-      &:hover::after{
-        height:180%;
-        width:180%;
+        margin:0;
+        padding:0;
+        left:50%;top:50%;
+        transform:translate(-50%, -50%);
+        background-color:$red ;
+        height:0%;
+        width:0%;
+        border:none;
+        transition: 0.2s;
       }
     }
   }
@@ -136,7 +138,7 @@ body{
     height:0%;
     width:100%;
     background-image:url('images/tweed.png');
-    transition:0.2s;
+    transition:0.2s ease-out;
     &:after{
       content:'';
       display:block;
@@ -288,14 +290,15 @@ body{
     width:100%;
     height:100%;
     opacity:0.2;
-    background: linear-gradient(to right, $red, $green , $teal, $blue, $purple);
+    background: linear-gradient(to top, $red, $green , $teal, $blue, $purple);
   }
   .container {
     z-index:100000;
     position:absolute;
     color:white;
-    font-family: 'chantal', sans-serif;
-    font-size:38px;
+    font-family: 'proxima-soft', sans-serif;
+    font-size:28px;
+    text-transform: uppercase;
     text-align: center;
     top:50%;
     left:50%;
@@ -389,18 +392,20 @@ body{
   .aside {
     z-index: 4;
     position:relative;
-    padding-top:80px;
-    padding-bottom: 75px;
-    text-align: left;
+    padding-top:40px;
+    padding-bottom: 50px;
+    //text-align: left;
     //border:1px solid white;
     float:right;
     //transform: translateY(-50%);
   }
   h2 {
-    color:rgba(0,0,0,0.8);
+    color:rgb(60,60,60);
     font-family: 'chantal',sans-serif;
     font-weight: bold;
-    font-size:72px;
+    font-size: 48px;
+    @media only screen and (min-width: 600px) {font-size: 54px;}
+    @media only screen and (min-width: 768px) {font-size: 68px;}
     text-align: center;
     margin-bottom: 20px;
     margin-top:10px;
@@ -408,22 +413,23 @@ body{
   }
   p {
     color:rgba(0,0,0,0.8);
-    font-size:24px;
+    font-size:20px;
     font-family: "proxima-soft", sans-serif;
-    max-width: 1200px;
-    text-align: center;
-    //border:1px solid green;
+    max-width: 1000px;
+    text-align: left;
+    @media only screen and (min-width: 768px) {text-align: center;}
     margin: 0 auto;
   }
   h3 {
-    //border:1px solid black;
     margin-top: 0;
     margin-bottom:10px;
     width:100%;
     display:inline-block;
-    color: rgba(0,0,0,0.45);
+    color: rgb(150,150,150);
     font-family: 'proxima-soft', sans-serif;
-    font-size:54px;
+    font-size: 40px;
+    @media only screen and (min-width: 600px) {font-size: 48px;}
+    @media only screen and (min-width: 768px) {font-size: 54px;}
     position:relative;
     text-align: center;
     z-index: 5;
@@ -443,12 +449,12 @@ body{
 }
 
 .featuresContainer {
-  padding:10px;
+  //padding:10px;
   margin:0;
   position: relative;
   z-index: 999;
   //Force a SQUARE
-  padding-bottom: 100%;
+  padding-bottom: 50%;
   @media only screen and (min-width: 600px) {padding-bottom: 50%;}
   @media only screen and (min-width: 768px) {padding-bottom: 25%;}
 }
@@ -532,7 +538,7 @@ body{
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
-    font-size:5vw;
+    font-size:4vw;
     @media only screen and (min-width: 600px) { font-size: 2.8vw;}
     @media only screen and (min-width: 768px) { font-size: 1.8vw; }
   }
@@ -544,8 +550,6 @@ body{
   margin:0;
   margin-bottom:0;
   position:relative;
-  background-color:rgb(30,30,30);
-
   //height:inherit;
   //@media only screen and (min-width: 600px) { height: 180px;}
   //@media only screen and (min-width: 768px) { height: 350px;}
@@ -626,7 +630,7 @@ body{
   }
 
   .content{
-    padding-top: 30px;
+    padding-top: 15px;
     padding-bottom:50px;
     max-width:1000px;
     margin:auto;
@@ -635,7 +639,9 @@ body{
   }
   h2 {
     font-family: 'proxima-soft', sans-serif;
-    font-size: 52px;
+    font-size: 40px;
+    @media only screen and (min-width: 600px) {font-size: 48px;}
+    @media only screen and (min-width: 768px) {font-size: 54px;}
     text-transform: uppercase;
     text-align: center;
     color:rgb(150,150,150);
@@ -816,14 +822,13 @@ body{
       @media only screen and (min-width: 600px) { font-size:18px; padding-left: 45px; padding-right:45px;}
       @media only screen and (min-width: 768px) { font-size:24px; padding-left: 45px; padding-right:45px;}
       color:white;
-
       h2 {
         font-size:38px;
         font-family: 'chantal', sans-serif;
         text-align: center;
       }
       p{
-        padding-bottom:50px;
+        padding-bottom:30px;
       }
     }
   }

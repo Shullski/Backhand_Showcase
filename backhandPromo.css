@@ -22,7 +22,8 @@
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  background-color: white; }
 
 .row::after {
   content: '';
@@ -31,6 +32,11 @@ body {
 
 [class*="col-"] {
   width: 100%;
+  float: left;
+  padding: 15px; }
+
+.sCol {
+  width: 50%;
   float: left;
   padding: 15px; }
 
@@ -115,11 +121,15 @@ body {
 .scrollIndicator {
   position: fixed;
   z-index: 600;
-  width: 35px;
+  width: 25px;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 48px; }
+  font-size: 48px;
+  display: none; }
+  @media only screen and (min-width: 768px) {
+    .scrollIndicator {
+      display: block; } }
   .scrollIndicator .wrapper {
     width: 100%;
     padding-bottom: 100%;
@@ -137,23 +147,18 @@ body {
       border-radius: 50%;
       padding: 0;
       position: absolute; }
-      .scrollIndicator .wrapper div::after {
-        content: '';
-        display: block;
-        border-radius: 50%;
-        padding: 0;
+      .scrollIndicator .wrapper div .inner {
+        position: absolute;
         margin: 0;
+        padding: 0;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         background-color: #F75B54;
         height: 0%;
         width: 0%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        border: none;
         transition: 0.2s; }
-      .scrollIndicator .wrapper div:hover::after {
-        height: 180%;
-        width: 180%; }
 
 .nav {
   list-style-type: none;
@@ -174,7 +179,7 @@ body {
     height: 0%;
     width: 100%;
     background-image: url("images/tweed.png");
-    transition: 0.2s; }
+    transition: 0.2s ease-out; }
     .nav #navOverlay:after {
       content: '';
       display: block;
@@ -316,13 +321,14 @@ body {
     width: 100%;
     height: 100%;
     opacity: 0.2;
-    background: linear-gradient(to right, #F75B54, #00E985, #10DBE8, #54A0F7, #B954F7); }
+    background: linear-gradient(to top, #F75B54, #00E985, #10DBE8, #54A0F7, #B954F7); }
   .menuOverlay .container {
     z-index: 100000;
     position: absolute;
     color: white;
-    font-family: 'chantal', sans-serif;
-    font-size: 38px;
+    font-family: 'proxima-soft', sans-serif;
+    font-size: 28px;
+    text-transform: uppercase;
     text-align: center;
     top: 50%;
     left: 50%;
@@ -402,38 +408,52 @@ body {
   .about .aside {
     z-index: 4;
     position: relative;
-    padding-top: 80px;
-    padding-bottom: 75px;
-    text-align: left;
+    padding-top: 40px;
+    padding-bottom: 50px;
     float: right; }
   .about h2 {
-    color: rgba(0, 0, 0, 0.8);
+    color: #3c3c3c;
     font-family: 'chantal',sans-serif;
     font-weight: bold;
-    font-size: 72px;
+    font-size: 48px;
     text-align: center;
     margin-bottom: 20px;
     margin-top: 10px;
     overflow: hidden; }
+    @media only screen and (min-width: 600px) {
+      .about h2 {
+        font-size: 54px; } }
+    @media only screen and (min-width: 768px) {
+      .about h2 {
+        font-size: 68px; } }
   .about p {
     color: rgba(0, 0, 0, 0.8);
-    font-size: 24px;
+    font-size: 20px;
     font-family: "proxima-soft", sans-serif;
-    max-width: 1200px;
-    text-align: center;
+    max-width: 1000px;
+    text-align: left;
     margin: 0 auto; }
+    @media only screen and (min-width: 768px) {
+      .about p {
+        text-align: center; } }
   .about h3 {
     margin-top: 0;
     margin-bottom: 10px;
     width: 100%;
     display: inline-block;
-    color: rgba(0, 0, 0, 0.45);
+    color: #969696;
     font-family: 'proxima-soft', sans-serif;
-    font-size: 54px;
+    font-size: 40px;
     position: relative;
     text-align: center;
     z-index: 5;
     text-transform: uppercase; }
+    @media only screen and (min-width: 600px) {
+      .about h3 {
+        font-size: 48px; } }
+    @media only screen and (min-width: 768px) {
+      .about h3 {
+        font-size: 54px; } }
 
 .aboutOverlay {
   height: 100%;
@@ -446,11 +466,10 @@ body {
   background: linear-gradient(to top, white, rgba(255, 255, 255, 0.6)); }
 
 .featuresContainer {
-  padding: 10px;
   margin: 0;
   position: relative;
   z-index: 999;
-  padding-bottom: 100%; }
+  padding-bottom: 50%; }
   @media only screen and (min-width: 600px) {
     .featuresContainer {
       padding-bottom: 50%; } }
@@ -533,7 +552,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 5vw; }
+    font-size: 4vw; }
     @media only screen and (min-width: 600px) {
       .buttonOverlay span {
         font-size: 2.8vw; } }
@@ -545,8 +564,7 @@ body {
   padding: 0;
   margin: 0;
   margin-bottom: 0;
-  position: relative;
-  background-color: #1e1e1e; }
+  position: relative; }
 
 .leftStatistics {
   position: relative;
@@ -630,7 +648,7 @@ body {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.6); }
   .problem .content {
-    padding-top: 30px;
+    padding-top: 15px;
     padding-bottom: 50px;
     max-width: 1000px;
     margin: auto;
@@ -638,10 +656,16 @@ body {
     z-index: 400; }
   .problem h2 {
     font-family: 'proxima-soft', sans-serif;
-    font-size: 52px;
+    font-size: 40px;
     text-transform: uppercase;
     text-align: center;
     color: #969696; }
+    @media only screen and (min-width: 600px) {
+      .problem h2 {
+        font-size: 48px; } }
+    @media only screen and (min-width: 768px) {
+      .problem h2 {
+        font-size: 54px; } }
   .problem h3 {
     font-family: 'chantal', sans-serif;
     font-size: 32px;
@@ -814,7 +838,7 @@ body {
         font-family: 'chantal', sans-serif;
         text-align: center; }
       .overlay .overlayContent .wording p {
-        padding-bottom: 50px; }
+        padding-bottom: 30px; }
 
 .contentOverlay {
   position: fixed;
