@@ -43,15 +43,15 @@ var loadTimer;
 var animationCounter = 0;
 
 function startLoadAnimation() {
-    loadTimer = setInterval(loadAnimation, 400);
+    loadTimer = setInterval(loadAnimation, 300);
 }
 
 function loadAnimation() {
   $('.animation').find('.inner').each(function () {
     if ($(this).hasClass(animationCounter)) {
-      $(this).css({'background-color': colors[animationCounter],'border': 'none'});
+      $(this).css({'height': '50%','width': '50%'});
     }else {
-      $(this).css({'background-color': 'transparent','border': '1px solid white'});
+      $(this).css({'height': '0','width': '0'});
     }
   });
   animationCounter++;
