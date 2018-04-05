@@ -6,7 +6,7 @@ var tealHex = '#10DBE8';
 var blueHex = '#54A0F7';
 var purpleHex = '#B954F7';
 /* ============= */
-
+var colors = [redHex, greenHex, blueHex, purpleHex];
 //To simulate "passing by reference"
 //to determine if scrolling up or down
 var lastScrollPosition = 0;
@@ -19,9 +19,6 @@ function getScrollPosition(element) {
 }
 
 ///Determine which nav option the user is currently scrolled over
-function getScrollArea(pos) {
-
-}
 
 //Determines if the user is scrolling up (true) or down (false)
 function isScrollingUp(pos) {
@@ -39,8 +36,40 @@ var mobileBreakpoint = 600;
 var tabletBreakpoint = 769;
 
 
+var fadedIn = false;
+
+
+var loadTimer;
+var animationCounter = 0;
+
+function startLoadAnimation() {
+    loadTimer = setInterval(loadAnimation, 400);
+}
+
+function loadAnimation() {
+  $('.animation').find('.inner').each(function () {
+    if ($(this).hasClass(animationCounter)) {
+      $(this).css({'background-color': colors[animationCounter],'border': 'none'});
+    }else {
+      $(this).css({'background-color': 'transparent','border': '1px solid white'});
+    }
+  });
+  animationCounter++;
+  if (animationCounter > 3) animationCounter = 0;
+
+  console.log(animationCounter);
+}
+
+
+$(window).bind("load", function() {
+  $('.loading').delay(1000).fadeOut(200);
+  $('.allContent').delay(1000).fadeIn(1000);
+  clearInterval(loadTimer);
+});
+
 /*===============*/
 $(document).ready(function(){
+  startLoadAnimation();
 
   windowHeight = $(window).height();
   //Element scroll positions------
@@ -56,10 +85,10 @@ $(document).ready(function(){
   //------------------------------
 
   var prototypeHeight = $('.footer').height();
-  $('.prototype').css('margin-bottom', prototypeHeight);
+  $('.why').css('margin-bottom', prototypeHeight);
   var position = $(this).scrollTop();
   var expandNavPosition = getScrollPosition('#aboutScroll');
-  if(position > expandNavPosition - 60) {
+  if(position > expandNavPosition - 60 && fadedIn) {
     $('.nav > div').css('height', '100%');
   }else{
     $('.nav > div').css('height', '0%');
@@ -70,7 +99,7 @@ $(document).ready(function(){
     windowHeight = $(window).height();
     var width = $(this).outerWidth();
     prototypeHeight = $('.footer').height();
-    $('.prototype').css('margin-bottom', prototypeHeight);
+    $('.why').css('margin-bottom', prototypeHeight);
     if($('.hamburger').hasClass('change')) {
       if (width > tabletBreakpoint) {
         $('.menuOverlay').fadeOut();
@@ -83,15 +112,15 @@ $(document).ready(function(){
   $(document).scroll(function() {
     var position = $(this).scrollTop();
 
-    if (position < homePosition + (windowHeight/2)) {
-      $('.scrollIndicator > #home').find('.inner').css({'height': '140%','width': '140%'});
-    } else if (position > homePosition + (windowHeight/2) && position < featuresPosition + (windowHeight/2)) {
-      console.log('about');
-    } else if (position > featuresPosition + (windowHeight/2) && position < problemPosition - (windowHeight/2)) {
-      console.log('features');
-    }else{
-      console.log('problem');
-    }
+    // if (position < homePosition + (windowHeight/2)) {
+    //   $('.scrollIndicator > #home').find('.inner').css({'height': '140%','width': '140%'});
+    // } else if (position > homePosition + (windowHeight/2) && position < featuresPosition + (windowHeight/2)) {
+    //   console.log('about');
+    // } else if (position > featuresPosition + (windowHeight/2) && position < problemPosition - (windowHeight/2)) {
+    //   console.log('features');
+    // }else{
+    //   console.log('problem');
+    // }
 
 
 

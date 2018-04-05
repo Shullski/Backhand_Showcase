@@ -23,7 +23,10 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: white; }
+  background-color: #141414; }
+
+.allContent {
+  display: none; }
 
 .row::after {
   content: '';
@@ -114,6 +117,45 @@ body {
 
   .col-12 {
     width: 100%; } }
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0; }
+  .loading .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 1s ease-out;
+    width: 100px; }
+    .loading .container img {
+      max-width: 100%;
+      margin: 0;
+      padding: 0; }
+    .loading .container .animation {
+      width: 25%;
+      position: relative;
+      float: left;
+      padding: 0;
+      margin: 0;
+      padding-bottom: 25%; }
+      .loading .container .animation .inner {
+        z-index: 100;
+        height: 50%;
+        width: 50%;
+        border: 1px solid white;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto; }
+
 /* Site */
 .noScroll {
   overflow-y: hidden; }
@@ -575,7 +617,7 @@ body {
   background-color: #1e1e1e; }
   @media only screen and (min-width: 600px) {
     .leftStatistics {
-      height: 260px; } }
+      height: 285px; } }
   @media only screen and (min-width: 768px) {
     .leftStatistics {
       height: 350px; } }
@@ -610,7 +652,7 @@ body {
   position: relative; }
   @media only screen and (min-width: 600px) {
     .rightStatistics {
-      height: 260px; } }
+      height: 285px; } }
   @media only screen and (min-width: 768px) {
     .rightStatistics {
       height: 350px; } }
@@ -659,7 +701,8 @@ body {
     font-size: 40px;
     text-transform: uppercase;
     text-align: center;
-    color: #969696; }
+    color: #969696;
+    position: relative; }
     @media only screen and (min-width: 600px) {
       .problem h2 {
         font-size: 48px; } }
@@ -670,7 +713,18 @@ body {
     font-family: 'chantal', sans-serif;
     font-size: 32px;
     padding-left: 25px;
-    color: #646464; }
+    color: #646464;
+    position: relative; }
+    .problem h3:before {
+      display: block;
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 4px;
+      border-radius: 2px;
+      bottom: 0;
+      left: 10px;
+      background: linear-gradient(to top, #F75B54, #00E985, #10DBE8, #54A0F7, #B954F7); }
   .problem p {
     padding-left: 25px;
     padding-right: 25px;
@@ -706,7 +760,7 @@ body {
     left: 0;
     height: 100%;
     width: 100%;
-    opacity: 0.7;
+    opacity: 0.5;
     background: linear-gradient(to right, #F75B54, #00E985, #10DBE8, #54A0F7, #B954F7); }
   .prototype .button {
     background-color: #1e1e1e;
@@ -724,6 +778,7 @@ body {
     height: 60px;
     width: 300px;
     margin: 0;
+    margin-bottom: 0;
     padding: 0; }
     .prototype .button:hover {
       background-color: #282828; }
@@ -750,6 +805,47 @@ body {
     z-index: 600; }
 
 /* ============== */
+.why {
+  position: relative;
+  padding: 0;
+  z-index: 0;
+  background-image: url("images/topography.png"); }
+  .why::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.6); }
+  .why .content {
+    position: relative;
+    max-width: 1000px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin: 0 auto;
+    z-index: 2; }
+    .why .content h2 {
+      font-family: 'proxima-soft', sans-serif;
+      color: #969696;
+      font-size: 40px;
+      text-transform: uppercase;
+      text-align: center;
+      z-index: 2;
+      position: relative; }
+      @media only screen and (min-width: 600px) {
+        .why .content h2 {
+          font-size: 48px; } }
+      @media only screen and (min-width: 768px) {
+        .why .content h2 {
+          font-size: 54px; } }
+    .why .content p {
+      padding-left: 25px;
+      padding-right: 25px;
+      font-family: 'proxima-soft',sans-serif;
+      color: #505050; }
+
 /* ============== */
 .footer {
   background-image: url("images/concrete-texture.png");
