@@ -61,11 +61,11 @@ function loadAnimation() {
 }
 
 
-$(window).bind("load", function() {
-  $('.loading').delay(1000).fadeOut(200);
-  $('.allContent').delay(1000).fadeIn(1000);
-  clearInterval(loadTimer);
-});
+// $(window).bind("load", function() {
+//   $('.loading').delay(1000).fadeOut(200);
+//   $('.allContent').delay(1000).fadeIn(1000);
+//   clearInterval(loadTimer);
+// });
 
 /*===============*/
 $(document).ready(function(){
@@ -112,15 +112,15 @@ $(document).ready(function(){
   $(document).scroll(function() {
     var position = $(this).scrollTop();
 
-    // if (position < homePosition + (windowHeight/2)) {
-    //   $('.scrollIndicator > #home').find('.inner').css({'height': '140%','width': '140%'});
-    // } else if (position > homePosition + (windowHeight/2) && position < featuresPosition + (windowHeight/2)) {
-    //   console.log('about');
-    // } else if (position > featuresPosition + (windowHeight/2) && position < problemPosition - (windowHeight/2)) {
-    //   console.log('features');
-    // }else{
-    //   console.log('problem');
-    // }
+    if (position < homePosition + (windowHeight/2)) {
+      $('.scrollIndicator > #home').find('.inner').css({'height': '140%','width': '140%'});
+    } else if (position > homePosition + (windowHeight/2) && position < featuresPosition + (windowHeight/2)) {
+      console.log('about');
+    } else if (position > featuresPosition + (windowHeight/2) && position < problemPosition - (windowHeight/2)) {
+      console.log('features');
+    }else{
+      console.log('problem');
+    }
 
 
 
@@ -207,18 +207,19 @@ $(document).ready(function(){
 
   //============== CLICKABLE PROTOTYPE ================
   $('#prototypeToggle').click(function(){
-    if($(this).hasClass('.toggled')) {
-      $(this).toggleClass('.toggled');
+    $(this).toggleClass('toggled');
+    if($(this).hasClass('toggled')) {
+
+      $('.prototype').find('span').fadeOut(100);
       $('.prototype').css('height', '580');
-      $('.prototype').find('span').fadeOut('20');
       $(this).animate({top: '6%'}, 800);
       $(this).css('height','40px');
       $(this).css('width','40px');
       $(this).css('border-radius','50%');
       $('.prototype').find('img').delay('700').fadeIn('slow');
-      $('.prototype').children('iframe').delay('600').fadeIn('200');
+      $('.prototype').children('iframe').delay('600').fadeIn(100);
     }else{
-      $('.prototype').children('iframe').fadeOut('50');
+      $('.prototype').children('iframe').fadeOut(100);
       $('.prototype').find('img').fadeOut('fast');
       $(this).toggleClass('.toggled');
       $('.prototype').css('height', '250');

@@ -671,7 +671,7 @@ body{
     top:0;left:0;
     height:100%;
     width:100%;
-    background-color:rgba(255,255,255,0.6);
+    background-color:rgba(255,255,255,0.1);
   }
 
   .content{
@@ -779,7 +779,7 @@ body{
     position:absolute;
     top:50%; left:50%;
     transform: translate(-50%, -50%);
-    transition: box-shadow 0.2s, transform 2s ease-out, background-color 0.2s, height 0.8s, width 0.8s, border-radius 1s;
+    transition: box-shadow 0.2s, transform 2s ease-in, background-color 0.2s, height 0.8s, width 0.8s, border-radius 1s;
     height:60px;
     width:300px;
     margin:0;
