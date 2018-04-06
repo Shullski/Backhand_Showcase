@@ -35,13 +35,10 @@ function isScrollingUp(pos) {
 var mobileBreakpoint = 600;
 var tabletBreakpoint = 769;
 
-
 var fadedIn = false;
-
-
+var doneLoading = false;
 var loadTimer;
 var animationCounter = 0;
-
 function startLoadAnimation() {
     loadTimer = setInterval(loadAnimation, 300);
 }
@@ -50,22 +47,20 @@ function loadAnimation() {
   $('.animation').find('.inner').each(function () {
     if ($(this).hasClass(animationCounter)) {
       $(this).css({'height': '50%','width': '50%'});
-    }else {
+    }else if (!doneLoading) {
       $(this).css({'height': '0','width': '0'});
     }
   });
   animationCounter++;
   if (animationCounter > 3) animationCounter = 0;
-
-  console.log(animationCounter);
 }
 
 
-// $(window).bind("load", function() {
-//   $('.loading').delay(1000).fadeOut(200);
-//   $('.allContent').delay(1000).fadeIn(1000);
-//   clearInterval(loadTimer);
-// });
+$(window).bind("load", function() {
+  $('.loading').delay(2000).fadeOut(200);
+  $('.allContent').delay(2000).fadeIn(1000);
+  doneLoading = true;
+});
 
 /*===============*/
 $(document).ready(function(){
@@ -79,9 +74,9 @@ $(document).ready(function(){
   var prototypePosition = getScrollPosition('#prototypeScroll');
   var problemPosition = getScrollPosition('#problemScroll');
 
-  function getScrollArea(pos) {
-
-  }
+  // function getScrollArea(pos) {
+  //
+  // }
   //------------------------------
 
   var prototypeHeight = $('.footer').height();
