@@ -125,36 +125,63 @@ body {
   height: 100%;
   padding: 0;
   margin: 0; }
-  .loading .container {
+  .loading .loadContainer {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: 1s ease-out;
-    width: 100px; }
-    .loading .container img {
-      max-width: 100%;
-      margin: 0;
-      padding: 0; }
-    .loading .container .animation {
-      width: 25%;
+    height: auto;
+    width: auto;
+    text-align: center; }
+    .loading .loadContainer .imageContainer {
       position: relative;
-      float: left;
-      padding: 0;
-      margin: 0;
-      padding-bottom: 25%; }
-      .loading .container .animation .inner {
-        z-index: 100;
-        height: 0;
-        width: 0;
-        border-radius: 50%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-        transition: 0.3s ease-out; }
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      margin: 0 auto;
+      transition: 1s ease-out;
+      width: 60px;
+      height: 60px; }
+      .loading .loadContainer .imageContainer img {
+        max-width: 100%;
+        margin: 0;
+        padding: 0; }
+    .loading .loadContainer .animationContainer {
+      width: 35%;
+      margin: 0 auto;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: relative; }
+      .loading .loadContainer .animationContainer .animation {
+        width: 25%;
+        position: relative;
+        float: left;
+        padding: 0;
+        margin: 0;
+        padding-bottom: 25%; }
+        .loading .loadContainer .animationContainer .animation .inner {
+          z-index: 100;
+          height: 0;
+          width: 0;
+          border-radius: 50%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          transition: 0.3s ease-out; }
+    .loading .loadContainer p {
+      color: white;
+      font-size: 18px;
+      font-family: 'proxima-soft', sans-serif;
+      margin-top: 10px; }
+      .loading .loadContainer p span {
+        font-family: 'Pacifico', cursive;
+        color: #ff75f3; }
 
 /* Site */
 .noScroll {

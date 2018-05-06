@@ -86,42 +86,65 @@ body{
   height:100%;
   padding:0;
   margin:0;
-  .container {
+  .loadContainer {
     position:absolute;
     top:50%; left:50%;
     transform: translate(-50%,-50%);
-    transition:1s ease-out;
-    //border:1px solid green;
-    width:100px;
-
-    //border:1px solid white;
-    img {
-      max-width: 100%;
-      margin:0;
-      padding:0;
-      //border:1px dotted white;
-    }
-    .animation {
-      width:25%;
+    height:auto;
+    width:auto;
+    text-align:center;
+    .imageContainer {
       position:relative;
-      float:left;
-      padding:0;
-      margin:0;
-      padding-bottom: 25%;
-       //border:1px solid red;
-      .inner {
-        z-index: 100;
-        height:0;
-        width:0;
-        border-radius: 50%;
-        position:absolute;
-        top:0;left:0;right:0;bottom:0;
-        margin:auto;
-        transition: 0.3s ease-out;
+      top:0; right:0; left:0; bottom:0;
+      margin:0 auto;
+      transition:1s ease-out;
+      width:60px;
+      height:60px;
+      //border:1px solid green;
+      img{
+        max-width:100%;
+        margin:0;
+        padding:0;
+      }
+    }
+    .animationContainer {
+      width:35%;
+      margin:0 auto;
+      top:0; left:0; right:0; bottom: 0;
+      //border:5px solid white;
+      position:relative;
+      .animation {
+        width:25%;
+        position:relative;
+        float:left;
+        padding:0;
+        margin:0;
+        padding-bottom: 25%;
+        //border:1px solid yellow;
+        .inner {
+          z-index: 100;
+          height:0;
+          width:0;
+          border-radius: 50%;
+          position:absolute;
+          top:0;left:0;right:0;bottom:0;
+          margin:auto;
+          transition: 0.3s ease-out;
+        }
+      }
+    }
+    p{
+      color:white;
+      font-size:18px; font-family: 'proxima-soft', sans-serif;
+      margin-top:10px;
+      span {
+        font-family: 'Pacifico', cursive;
+        color:#ff75f3;
       }
     }
   }
 }
+
 /* Site */
 .noScroll {overflow-y:hidden;}
 
