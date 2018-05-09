@@ -34,6 +34,8 @@ function isScrollingUp(pos) {
 //Responisve Design
 var mobileBreakpoint = 600;
 var tabletBreakpoint = 769;
+var expandedScroll;
+var prevExpandedScroll;
 
 var fadedIn = false;
 var doneLoading = false;
@@ -74,11 +76,6 @@ $(document).ready(function(){
 
   windowHeight = $(window).height();
   //Element scroll positions------
-  var homePosition = getScrollPosition('#jumbotronScroll');
-  var featuresPosition = getScrollPosition('#featuresScroll');
-  var aboutPosition = getScrollPosition('#aboutScroll');
-  var prototypePosition = getScrollPosition('#prototypeScroll');
-  var problemPosition = getScrollPosition('#problemScroll');
 
   // function getScrollArea(pos) {
   //
@@ -110,17 +107,24 @@ $(document).ready(function(){
   });
 
   $(document).scroll(function() {
+    // var homePosition = getScrollPosition('#jumbotronScroll');
+    // var featuresPosition = getScrollPosition('#featuresScroll');
+    // var aboutPosition = getScrollPosition('#aboutScroll');
+    // var prototypePosition = getScrollPosition('#prototypeScroll');
+    // var problemPosition = getScrollPosition('#problemScroll');
+    //
+    // var position = $(this).scrollTop();
+    //
+    // if (position > (problemPosition - 60)) {
+    //   $('.scrollIndicator > #problem').find('.inner').css({'height': '140%','width': '140%'});
+    // } else if (position > (prototypePosition - 60)) {
+    //   $('.scrollIndicator > #prototype').find('.inner').css({'height': '140%','width': '140%'});
+    // } else if (position > (aboutPosition - 60)) {
+    //   $('.scrollIndicator > #about').find('.inner').css({'height': '140%','width': '140%'});
+    // }else if (position > (homePosition - 60)) {
+    //   $('.scrollIndicator > #home').find('.inner').css({'height': '140%','width': '140%'});
+    // }
     var position = $(this).scrollTop();
-
-    if (position < homePosition + (windowHeight/2)) {
-      $('.scrollIndicator > #home').find('.inner').css({'height': '140%','width': '140%'});
-    } else if (position > homePosition + (windowHeight/2) && position < featuresPosition + (windowHeight/2)) {
-      console.log('about');
-    } else if (position > featuresPosition + (windowHeight/2) && position < problemPosition - (windowHeight/2)) {
-      console.log('features');
-    }else{
-      console.log('problem');
-    }
 
 
 
@@ -193,10 +197,10 @@ $(document).ready(function(){
       var delay = 300;
         $('.menuOverlay > .container > div').each(function(){
             $(this).animate({
-  				        opacity: '1',
-                 bottom: '0'
-  			}, delay );
-            delay *= 1.5;
+  				    opacity: '1',
+              bottom: '0'
+  			    }, delay );
+          delay *= 1.5;
         });
 
       $('.menuOverlay').fadeIn('fast');
