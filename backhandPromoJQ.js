@@ -60,6 +60,12 @@ $(window).bind("load", function() {
   $('.loading').delay(2000).fadeOut(200);
   $('.allContent').delay(2000).fadeIn(1000);
   doneLoading = true;
+
+  setTimeout(function(){
+    var prototypeHeight = $('.footer').height();
+    console.log(prototypeHeight);
+    $('.why').css('margin-bottom', prototypeHeight);
+  }, 2000);
 });
 
 /*===============*/
@@ -79,8 +85,7 @@ $(document).ready(function(){
   // }
   //------------------------------
 
-  var prototypeHeight = $('.footer').height();
-  $('.why').css('margin-bottom', prototypeHeight);
+
   var position = $(this).scrollTop();
   var expandNavPosition = getScrollPosition('#aboutScroll');
   if(position > expandNavPosition - 60 && fadedIn) {

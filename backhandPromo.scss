@@ -207,7 +207,7 @@ body{
     height:0%;
     width:100%;
     background-image:url('images/tweed.png');
-    transition:0.2s ease-out;
+    transition:0.4s ease;
     &:after{
       content:'';
       display:block;
@@ -216,7 +216,7 @@ body{
       width:inherit;
       height:100%;
       opacity:0.5;
-      background: linear-gradient(to right, $red, $green , $teal, $blue, $purple);
+      background: linear-gradient(to right, $green, $blue, $purple, $red);
     }
   }
   li {
@@ -359,7 +359,7 @@ body{
     width:100%;
     height:100%;
     opacity:0.2;
-    background: linear-gradient(to top, $red, $green , $teal, $blue, $purple);
+    background: linear-gradient(to top, $green, $blue, $purple, $red);
   }
   .container {
     z-index:100000;
@@ -390,7 +390,7 @@ body{
 
 .jumboTron {
   height:100vh;
-  min-height:700px;
+  min-height:500px;
   background-image:url('images/lookingOut.jpg');
   background-position: bottom;
   background-repeat: no-repeat;
@@ -412,7 +412,7 @@ body{
   position:relative;
   height:100%;
   width:100%;
-  background: linear-gradient(to top right, $red, $green , $teal, $blue, $purple);
+  background: linear-gradient(to top right, $green, $blue, $purple, $red);
   opacity:0.4;
   z-index: 3;
   padding:30px;
@@ -429,9 +429,24 @@ body{
 }
 
 .logoContainer {
-  height:200px;
-  width:200px;
+  height:175px;
+  width:175px;
   margin: 0 auto;
+  position:relative;
+  padding-bottom:10px;
+  margin-bottom:10px;
+  &::after {
+    display:block;
+    content: '';
+    background: linear-gradient(to right, transparent, white, transparent);
+    z-index: 10000000;
+    height:2px;
+    width:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+    border-radius: 1px;
+  }
 }
 .headlineLogo {
   max-width: 100%;
@@ -440,8 +455,13 @@ body{
 
 .headline h1 {
   color:white;
+  padding-left:10px; padding-right: 10px;
+  margin:0;
   font-size: 42px;
   font-family: 'proxima-soft', sans-serif;
+}
+.lighter {
+  font-weight: 100;
 }
 
 /* ============== */
@@ -458,13 +478,16 @@ body{
   background-size: cover;
   position:relative;
   background-attachment: fixed;
+  padding-left: 10px;
+  padding-right: 10x;
+  padding-top:40px;
+  padding-bottom:40px;
   .aside {
     z-index: 4;
     position:relative;
-    padding-top:40px;
-    padding-bottom: 50px;
     //text-align: left;
     //border:1px solid white;
+    padding-bottom: 40px;
     float:right;
     //transform: translateY(-50%);
   }
@@ -476,8 +499,11 @@ body{
     @media only screen and (min-width: 600px) {font-size: 54px;}
     @media only screen and (min-width: 768px) {font-size: 68px;}
     text-align: center;
-    margin-bottom: 20px;
-    margin-top:10px;
+    //border:1px solid black;
+    margin-top:0;
+    margin-bottom: 0;
+    padding-top:20px;
+    padding-bottom: 50px;
     overflow: hidden;
   }
   p {
@@ -491,7 +517,10 @@ body{
   }
   h3 {
     margin-top: 0;
-    margin-bottom:10px;
+    margin-bottom: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    //border:1px solid black;
     width:100%;
     display:inline-block;
     color: rgb(150,150,150);
@@ -694,7 +723,7 @@ body{
     top:0;left:0;
     height:100%;
     width:100%;
-    background-color:rgba(255,255,255,0.1);
+    background-color:rgba(255,255,255,0.6);
   }
 
   .content{
@@ -742,14 +771,18 @@ body{
       border-radius: 2px;
       bottom:0;
       left:10px;
-      background: linear-gradient(to top, $red, $green , $teal, $blue, $purple);
+      background: linear-gradient(to top, $green, $blue, $purple, $red);
     }
   }
-  p {
+  p, ul {
     padding-left:25px;
     padding-right:25px;
     font-family:'proxima-soft',sans-serif;
     color:rgb(80,80,80);
+  }
+  ul {
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }
 
@@ -787,7 +820,7 @@ body{
     height:100%;
     width:100%;
     opacity:0.5;
-    background: linear-gradient(to right, $red, $green , $teal, $blue, $purple);
+    background: linear-gradient(to right, $green, $blue, $purple, $red);
   }
   .button {
     background-color:rgb(30,30,30);
@@ -886,7 +919,7 @@ body{
 
 /* ============== */
 .footer {
-  background-image: url('images/concrete-texture.png');
+  background: rgb(235,235,235);
   background-attachment: fixed;
   padding:0;
   margin:0;
@@ -959,8 +992,8 @@ body{
       font-size:14px;
       font-family: 'proxima-soft', sans-serif;
       padding-left: 45px; padding-right:10px;
-      @media only screen and (min-width: 600px) { font-size:18px; padding-left: 45px; padding-right:45px;}
-      @media only screen and (min-width: 768px) { font-size:24px; padding-left: 45px; padding-right:45px;}
+      @media only screen and (min-width: 600px) { font-size:16px; padding-left: 45px; padding-right:45px;}
+      @media only screen and (min-width: 768px) { font-size:22px; padding-left: 45px; padding-right:45px;}
       color:white;
       h2 {
         font-size:38px;
